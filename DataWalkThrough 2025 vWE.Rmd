@@ -37,7 +37,7 @@ Create a folder called **`RWork`** on your computer. Remember where this folder 
 
 We shall use data from a database of disasters (natural or technical, although we will focus on natural disasters). This database is maintained by [The Centre for Research on the Epidemiology of Disasters (CRED)](https://www.emdat.be/). Go to the website and click on "Access the data" and follow the registration instructions. Use your university email and indicate that you are accessing the data from an academic institution. This will give you access to the data. After confirming your registration from your email account you will get to a data download screen and you should use the following settings (note that you should choose the data between 1900-2024):
 
-![Image with settings for data download](emdat_settings.png){width="50%"}
+![Image with settings for data download](images/emdat_settings.png){width="50%"}
 
 After clicking download you should find that an EXCEL workshet was downloaded. Make sure you give this worksheet a sensible name. On this occasion I named it **`"natural.xlsx"`** and, importantly, **save it in the RWork folder you created in step 1**.
 
@@ -51,7 +51,7 @@ We will be loading these data (information on more than 17,000 disasters) into R
 
 Menu bar → Click **`Session`** → **`Set Working Directory`** → **`Choose Directory`** → Select **`RWork`** folder you created in step 1
 
-![](images/set%20working%20directory.png){width="400"}
+![](images/set_working_directory.png){width="400"}
 
 -   **Option 2.** Set Working Directory with Code `setwd()`
 
@@ -74,7 +74,7 @@ After executing this line of code (CTRL + ENTER on Windows, CMD + ENTER on Macs,
 
 Click on the little white sheet with the white plus over a green circle to open an R script:
 
-![](images/New%20scipt.png){width="300"}
+![](images/New_scipt.png){width="300"}
 
 R script file is just a **text file**, which can help us to save codes.
 
@@ -248,7 +248,7 @@ While the purpose of this may still be a little murky, the help function should 
 
 `r unhide()`
 
-You can immediately see from the Environment tab that the object has 17,288 observations (or rows) and 46 variables (or columns).
+You can immediately see from the Environment tab that the object has 17,288 observations (or rows) and `r fitb(46, num = TRUE)` variables (or columns).
 
 If you click on the little spreadsheet symbol in the `accdata` line in the environment you can actually see the spreadsheet. It should look a little like this
 
@@ -398,7 +398,7 @@ So, the natural catastrophe that affected more than 300 Mio people was a drought
 
 As I prepared this walk-through I saw the following tweet.
 
-![A tweet seen on 20 October 2021](tweet_group_by.png){width="50%"}
+![A tweet seen on 20 October 2021](images/tweet_group_by.png){width="50%"}
 
 Seeing this I wanted you to understand what this means, as indeed this is a crucial type of operation.
 
@@ -554,7 +554,7 @@ table.3 <- table.3 %>%  filter(Disaster.Type in sel.types2)
 
 Have you received an error message? 
 
-![Image with error message](error1.png){width="50%"}```{r, echo = FALSE}
+![Image with error message](images/error1.png){width="50%"}
 
 Try to figure out what the problem is. Dealing with error messages is a bread and butter activity for anyone who works with data in the way we do here. Note the following about error messages:
 
@@ -619,7 +619,7 @@ It is often said that the effects of climate change do predominantly hit the cou
 
 That dataset is the [EDGAR dataset](https://edgar.jrc.ec.europa.eu/dataset_ghg2024) maintained by the European Union. We are downloading the 2024 version of the dataset, in particular the "EDGAR Total GHG in CO2eq" version. 
 
-![Screenshot of EDGAR webpage](EDGARlink.png){width="50%"}
+![Screenshot of EDGAR webpage](images/EDGARlink.png){width="50%"}
 
 When you download this you will get a zip file and you should extract the contents of the zip file into your working directory. One of the files is an EXCEL file called "EDGAR_AR5_GHG_1970_2023.xlsx". Let us load this file.
 
@@ -632,7 +632,7 @@ This does not look like a proper datafile and you may actually have received an 
 
 Before uploading a datafile into R it is actually important to understand the structure of the datefile. Hence we should actually open the file in EXCEL and look at it to understand its structure.
 
-![Screenshot of EDGAR data in EXCEL](EDGAR_EXCEL_screenshot.png){width="50%"}
+![Screenshot of EDGAR data in EXCEL](images/EDGAR_EXCEL_screenshot.png){width="50%"}
 
 As you look at the file you will see that there are several tabs with data and by default the `read_excel` function imports the first. But that is not the one with the data we want. The sheet that contains the data we want to look at is called "TOTALS BY COUNTRY" (`sheet = "TOTALS BY COUNTRY"`). On that sheet we notice something else. The data sheet only starts in row 10 with the variable names. So when we import this we want to ignore the first 9 rows (`skip = 9`). We need to instruct R to do that. Before you retry the import make sure that you close the spreadsheet.
 
