@@ -250,7 +250,7 @@ While the purpose of this may still be a little murky, the help function should 
 
 You can immediately see from the Environment tab that the object has 17,288 observations (or rows) and `r fitb(46, num = TRUE)` variables (or columns).
 
-If you click on the little spreadsheet symbol in the `accdata` line in the environment you can actually see the spreadsheet. It should look a little like this
+If you click on the little spreadsheet symbol in the `emdat` line in the environment you can actually see the spreadsheet. It should look a little like this
 
 ```{r,echo=FALSE}
 head(emdat)
