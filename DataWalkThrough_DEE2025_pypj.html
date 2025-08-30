@@ -13,7 +13,7 @@
     
     <meta property="author" content="Ralf Becker and Yichen Zhu" />
     
-    <meta property="date" content="2025-08-29 15:52:55" />
+    <meta property="date" content="2025-08-30 14:47:48" />
     
   
 
@@ -460,7 +460,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
           <h4>Ralf Becker and Yichen Zhu</h4>
           
           
-          <h4>2025-08-29 15:52:55</h4>
+          <h4>2025-08-30 14:47:48</h4>
           
         </header>
         
@@ -495,6 +495,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </pre></div>
 
 </div>
+
+<pre>The pretty_jupyter extension is already loaded. To reload it, use:
+  %reload_ext pretty_jupyter
+</pre>
+
+
 <h1 id="Aim">Aim<a class="anchor-link" href="#Aim">&#182;</a></h1><p>In this workthrough you will be exposed to some of the most basic, but also most relevant (and sometimes challenging) tasks in data analysis. In particular we will be using real-life data to understand whether natural disasters are becoming more frequent (potentially due to climate change) and whether the increased frequencies of these affects dis proportionally those countries that actually contributed least to climate change.</p>
 <p>This is written as if you have never been esposed to coding in R (or any other language). If you have, then lots of the initial sections will look very familiar to you. But this workthrough is also not meant to be a training guide to all the things we do. It is meant as an indication of what is possible and a demonstration of how data analysts actually work.</p>
 <p>Importantly, this walkthrough will also show some of the unglamorous tasks of an applied economist/data scientist, such as dealing with error messages and finding out how to solve coding issues.</p>
@@ -628,7 +634,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 
-            <div id="grx7gy"></div>
+            <div id="0XHyJg"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -652,9 +658,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("grx7gy").appendChild(div);
+                        document.getElementById("0XHyJg").appendChild(div);
                     };
-                    var e = document.getElementById("grx7gy");
+                    var e = document.getElementById("0XHyJg");
                     e.appendChild(script);
                 })()
             </script>
@@ -662,6 +668,17 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
 <p>Loading a library needs doing everytime you load your script.</p>
 <p><strong>Key point:</strong></p>
 <p>Install a library: just do <strong>once</strong></p>
@@ -685,7 +702,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <h4 id="What-does-this-line-of-code-actually-do?">What does this line of code actually do?<a class="anchor-link" href="#What-does-this-line-of-code-actually-do?">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
 <h5 id="Reading-Code">Reading Code<a class="anchor-link" href="#Reading-Code">&#182;</a></h5><p>It is extremely important to be able to read code and understand what it does. This is especially true in a world where we increasingly do not have to write code from scratch but have helpers at our hand that deliver code. But you need to remember that you are the quality control and are responsible for the code doing what you want it to do.</p>
 <h5 id="So-what-does-the-code-do?">So what does the code do?<a class="anchor-link" href="#So-what-does-the-code-do?">&#182;</a></h5><p>Here we are using the assignment operator <code>=</code> which tells Python to define a new object, here <code>emdat</code>, with whatever is on the right hand side of the assignment operator. On the right and side we are using the <code>pd.read_excel</code> function. As it uses the prefix <code>pd.</code> Python knows that it can find this function in the pandas library.</p>
-<p>Functions are the bread and butter of working in Python or any other language. Hidden behind <code>read_excel</code> is a lot of code that achieves a particular purpose. Usually that code needs some input variable(s). These input variables are delivered in the parentheses directly after the function name. How many and what inputs are needed depends on the function. You can find details on that by looking at the function's documentation. A straightforward way of accessing the that is to go to a browser and look for "Python read_excel" which will lead you to the <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html">documentation for the read_excel</a> function.</p>
+<p>Functions are the bread and butter of working in Python or any other language. Hidden behind <code>read_excel</code> is a lot of code that achieves a particular purpose. Usually that code needs some input variable(s). These input variables are delivered in the parentheses directly after the function name. How many and what inputs are needed depends on the function. You can find details on that by looking at the function's documentation. A straightforward way of accessing that is to go to a browser and look for "Python read_excel" which will lead you to the <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html">documentation for the read_excel</a> function.</p>
 <p>The input is the path to the EXCEL file we wish to import. Note that the default path used is the working directory we set previously. The function does take that EXCEL file and converts it into a dataframe (think about it as the equivalent of a spreadsheet in Python) which then can be used in Python. Once you executed this line you should see <code>emdat</code> when you look at the "Jupyter variables".</p>
 <h5 id="How-to-read-documentation?">How to read documentation?<a class="anchor-link" href="#How-to-read-documentation?">&#182;</a></h5><p>In the previous tab you were advised to look at the documentation for the <code>read_excel</code> function. When you start out working with code these documentation files can be somewhat overwhelming. Let's look at the information you can get from the <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html">documentation for the read_excel</a> function.</p>
 <p><img src="images/Py_doc1.png" alt="Image with documentation for read_excel"></p>
@@ -696,6 +713,662 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>From here you can understand what is expected. In that example the file being imported is "temp.xlsx". In that example you can also see that a 2nd option is used ("index_col=0"). Let's find out what this is for. In the first image, where all parameters are listed in teh function call you can see that it says "index_col = none". This means that by default, i.e. when you do not call that parameter, it is set to "non". But what does it mean. To figure that out you go to the Parameters list to find the following entry for this parameter:</p>
 <p><img src="images/Py_doc3.png" alt="Image with documentation for read_excel"></p>
 <p>It refers to how to name the entries/rows in the dataframe. By default ("none") read_excel assumes that there are no row labels in the imported sheet and Python will automatically allocate labels 0, 1, 2, etc to the rows.</p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+<h2 id="Initial-data-exploration">Initial data exploration<a class="anchor-link" href="#Initial-data-exploration">&#182;</a></h2><p>Let's explore the data. When you open the Jupyter Variables tab you can immediately see from the Environment tab that the object has 17,288 observations (or rows) and 46 variables (or columns).</p>
+<p>If you double click on the <code>emdat</code> line in the variable list you can actually see the spreadsheet.</p>
+<p>Sometimes it is useful to see a list of all the column/variable names. This is easily achieved by the following line.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emdat</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+</div>
+
+
+
+<pre>Index([&#39;DisNo.&#39;, &#39;Historic&#39;, &#39;Classification Key&#39;, &#39;Disaster Group&#39;,
+       &#39;Disaster Subgroup&#39;, &#39;Disaster Type&#39;, &#39;Disaster Subtype&#39;,
+       &#39;External IDs&#39;, &#39;Event Name&#39;, &#39;ISO&#39;, &#39;Country&#39;, &#39;Subregion&#39;, &#39;Region&#39;,
+       &#39;Location&#39;, &#39;Origin&#39;, &#39;Associated Types&#39;, &#39;OFDA/BHA Response&#39;, &#39;Appeal&#39;,
+       &#39;Declaration&#39;, &#39;AID Contribution (&#39;000 US$)&#39;, &#39;Magnitude&#39;,
+       &#39;Magnitude Scale&#39;, &#39;Latitude&#39;, &#39;Longitude&#39;, &#39;River Basin&#39;, &#39;Start Year&#39;,
+       &#39;Start Month&#39;, &#39;Start Day&#39;, &#39;End Year&#39;, &#39;End Month&#39;, &#39;End Day&#39;,
+       &#39;Total Deaths&#39;, &#39;No. Injured&#39;, &#39;No. Affected&#39;, &#39;No. Homeless&#39;,
+       &#39;Total Affected&#39;, &#39;Reconstruction Costs (&#39;000 US$)&#39;,
+       &#39;Reconstruction Costs, Adjusted (&#39;000 US$)&#39;,
+       &#39;Insured Damage (&#39;000 US$)&#39;, &#39;Insured Damage, Adjusted (&#39;000 US$)&#39;,
+       &#39;Total Damage (&#39;000 US$)&#39;, &#39;Total Damage, Adjusted (&#39;000 US$)&#39;, &#39;CPI&#39;,
+       &#39;Admin Units&#39;, &#39;Entry Date&#39;, &#39;Last Update&#39;],
+      dtype=&#39;object&#39;)</pre>
+
+
+
+<p>Another line that achieves the same (and more) is the following:</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emdat</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+</div>
+
+
+
+<pre>DisNo.                                        object
+Historic                                      object
+Classification Key                            object
+Disaster Group                                object
+Disaster Subgroup                             object
+Disaster Type                                 object
+Disaster Subtype                              object
+External IDs                                  object
+Event Name                                    object
+ISO                                           object
+Country                                       object
+Subregion                                     object
+Region                                        object
+Location                                      object
+Origin                                        object
+Associated Types                              object
+OFDA/BHA Response                             object
+Appeal                                        object
+Declaration                                   object
+AID Contribution (&#39;000 US$)                  float64
+Magnitude                                    float64
+Magnitude Scale                               object
+Latitude                                     float64
+Longitude                                    float64
+River Basin                                   object
+Start Year                                     int64
+Start Month                                  float64
+Start Day                                    float64
+End Year                                       int64
+End Month                                    float64
+End Day                                      float64
+Total Deaths                                 float64
+No. Injured                                  float64
+No. Affected                                 float64
+No. Homeless                                 float64
+Total Affected                               float64
+Reconstruction Costs (&#39;000 US$)              float64
+Reconstruction Costs, Adjusted (&#39;000 US$)    float64
+Insured Damage (&#39;000 US$)                    float64
+Insured Damage, Adjusted (&#39;000 US$)          float64
+Total Damage (&#39;000 US$)                      float64
+Total Damage, Adjusted (&#39;000 US$)            float64
+CPI                                          float64
+Admin Units                                   object
+Entry Date                                    object
+Last Update                                   object
+dtype: object</pre>
+
+
+
+<p>Here you can not only see the names but also the data types. The first variable (<code>DisNo</code>) is of type <code>object</code> which is basically a text or character variable. This variable is a unique identifier for a disaster. Most variables are of type <code>object</code>, <code>float64</code> (any number) or <code>int64</code> (natural numbers). Data types are important as there are some things you cannot do with certain variable types. For instance you couldn't multiply <code>object</code> variables as multiplication with text is not defined.</p>
+<p>Some of the variable names are very long and it may be useful to shorten them.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emdat</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;AID Contribution (&#39;000 US$)&quot;</span><span class="p">:</span> <span class="s2">&quot;AID.Contr&quot;</span><span class="p">,</span> 
+                   <span class="s2">&quot;Reconstruction Costs (&#39;000 US$)&quot;</span><span class="p">:</span> <span class="s2">&quot;Rec.Cost.adj&quot;</span><span class="p">,</span> 
+                   <span class="s2">&quot;Insured Damage (&#39;000 US$)&quot;</span><span class="p">:</span> <span class="s2">&quot;Ins.Damage&quot;</span><span class="p">,</span> 
+                   <span class="s2">&quot;Insured Damage, Adjusted (&#39;000 US$)&quot;</span><span class="p">:</span> <span class="s2">&quot;Ins.Damage.adj&quot;</span><span class="p">,</span> 
+                   <span class="s2">&quot;Total Damage (&#39;000 US$)&quot;</span><span class="p">:</span> <span class="s2">&quot;Total.Damage&quot;</span><span class="p">,</span> 
+                   <span class="s2">&quot;Total Damage, Adjusted (&#39;000 US$)&quot;</span><span class="p">:</span> <span class="s2">&quot;Total.Damage.adj&quot;</span><span class="p">},</span> 
+          <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;raise&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+<hr>
+<h4 id="What-does-this-line-of-code-actually-do?">What does this line of code actually do?<a class="anchor-link" href="#What-does-this-line-of-code-actually-do?">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Reading-Code">Reading Code<a class="anchor-link" href="#Reading-Code">&#182;</a></h5><p>Earlier we learned about functions and how they are applied. In the previous few lines you saw another important technique. On each occasion we did something with the dataframe <code>emdat</code>. And the way we did that was by calling the object, then a "." and then a name of a method, these were <code>columns</code>, <code>dtypes</code> and <code>rename</code>.</p>
+<h5 id="What-are-methods?">What are methods?<a class="anchor-link" href="#What-are-methods?">&#182;</a></h5><p>You can think of methods as functions which only make sense for a particular type of object, here a dataframe.</p>
+<h5 id="The-rename-method-looks-complicated">The rename method looks complicated<a class="anchor-link" href="#The-rename-method-looks-complicated">&#182;</a></h5><p>Applying the <code>rename</code> method here was indeed more complicated than applying <code>columns</code> or <code>dtypes</code>. Recall, methods are functions and some functions require additional input. To rename column names you had to tell python which columns you want to rename and then to which name. That is basically the information provided by, say <code>"AID Contribution ('000 US$)": "AID.Contr"</code> which gave basically the old and then the new column name.</p>
+<p>The <code>columns</code> and <code>dtypes</code> method merely told us something about some characteristic of the dataframe <code>emdat</code>. The <code>rename</code> method however, actually changed the <code>emdat</code> object. However, it only does so as  we set the addition al option <code>inplace=True</code>. If that was not set, it would have printed a new dataframe with the new columns but would not have saved the new names in <code>emdat</code>.</p>
+<h5 id="What-methods-are-there-for-dataframes?">What methods are there for dataframes?<a class="anchor-link" href="#What-methods-are-there-for-dataframes?">&#182;</a></h5><p>There are a lot. Too many to list here for sure. You could look at <a href="https://www.geeksforgeeks.org/pandas/python-pandas-dataframe/">this page</a> to see some of the most important ones or could ask ChatGPT to give you an overview of the most important methods for panda dataframes.</p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+<p>Let's look at a particular natural catastrophe, the one with indicator <code>DisNo. == "2019-0209-CHN"</code>.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emdat</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">emdat</span><span class="p">[</span><span class="s1">&#39;DisNo.&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;2019-0209-CHN&quot;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DisNo.</th>
+      <th>Historic</th>
+      <th>Classification Key</th>
+      <th>Disaster Group</th>
+      <th>Disaster Subgroup</th>
+      <th>Disaster Type</th>
+      <th>Disaster Subtype</th>
+      <th>External IDs</th>
+      <th>Event Name</th>
+      <th>ISO</th>
+      <th>...</th>
+      <th>Reconstruction Costs ('000 US$)</th>
+      <th>Reconstruction Costs, Adjusted ('000 US$)</th>
+      <th>Insured Damage ('000 US$)</th>
+      <th>Insured Damage, Adjusted ('000 US$)</th>
+      <th>Total Damage ('000 US$)</th>
+      <th>Total Damage, Adjusted ('000 US$)</th>
+      <th>CPI</th>
+      <th>Admin Units</th>
+      <th>Entry Date</th>
+      <th>Last Update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14815</th>
+      <td>2019-0209-CHN</td>
+      <td>No</td>
+      <td>nat-hyd-flo-flo</td>
+      <td>Natural</td>
+      <td>Hydrological</td>
+      <td>Flood</td>
+      <td>Flood (General)</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CHN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>700000.0</td>
+      <td>858892.0</td>
+      <td>6200000.0</td>
+      <td>7607333.0</td>
+      <td>81.500309</td>
+      <td>[{"adm1_code":900,"adm1_name":"Chongqing Shi"}...</td>
+      <td>2019-06-14</td>
+      <td>2023-09-25</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 46 columns</p>
+</div>
+
+
+
+<p>This is a flooding incident that happened in China in late June 2019. 300 people died and 4.5 million were affected according to the information in the database. Here is a <a href="https://www.bbc.co.uk/news/world-asia-china-48592711">BBC news article</a> on this heavy rain incident.</p>
+<p>You can learn much more about the structure of the database, how the data are collected and checked and the variable descriptions from this <a href="https://doc.emdat.be/docs/">documentation page</a>.</p>
+<p>So far we haven't done any analysis on the data, but let's start to use the power of the software. Let's say you want to look at some summary statistics for some variables, for instance you are interested in how many people are affected by the natural catastrophes in the database (<code>Total Affected</code>).</p>
+<p>We will now use the <code>describe</code> method, but only applied to the <code>Total Affected</code> column.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emdat</span><span class="p">[</span><span class="s1">&#39;Total Affected&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+</div>
+
+
+
+<pre>count    1.280200e+04
+mean     6.927568e+05
+std      7.385030e+06
+min      1.000000e+00
+25%      7.040000e+02
+50%      6.000000e+03
+75%      6.000000e+04
+max      3.300000e+08
+Name: Total Affected, dtype: float64</pre>
+
+
+
+<p>You can see that the natural disasters registered here affect on average almost 700,000 people, with a max of 330 million. But almost 5000 events have no information on the number of affected people. Especially early events do not have such information.</p>
+<p>The <code>describe</code> method works well for numerical variables. For categorical data a different method will give you better information.</p>
+<p>We can also see a breakdown of the type of incidents that have been recorded. This is recorded in the <code>Disaster Subgroup</code> variable (for all incidents here <code>Disaster Group == "Natural"</code>).</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emdat</span><span class="p">[</span><span class="s1">&#39;Disaster Subgroup&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+</div>
+
+
+
+<pre>Disaster Subgroup
+Hydrological         6897
+Meteorological       5550
+Geophysical          1941
+Biological           1610
+Climatological       1289
+Extra-terrestrial       1
+Name: count, dtype: int64</pre>
+
+
+
+<p>We find hydrological events (e.g. heavy rainfalls) to be the most common type of natural disaster.</p>
+<hr>
+<h4 id="PRACTICE">PRACTICE<a class="anchor-link" href="#PRACTICE">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Task">Task<a class="anchor-link" href="#Task">&#182;</a></h5><p>Identify the Extra-terrestrial incident in the dataset and see whether you can find any related news reports.</p>
+<h5 id="Hint">Hint<a class="anchor-link" href="#Hint">&#182;</a></h5><p>If you wish to find a particular incident you can use the same structure of a code line as we did to display the particular event above. You will just have to change the variable name by which you filter and the value it should take accordingly.</p>
+<h5 id="Complete-Solution">Complete Solution<a class="anchor-link" href="#Complete-Solution">&#182;</a></h5>
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emdat</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">emdat</span><span class="p">[</span><span class="s1">&#39;Disaster Subgroup&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Extra-terrestrial&quot;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DisNo.</th>
+      <th>Historic</th>
+      <th>Classification Key</th>
+      <th>Disaster Group</th>
+      <th>Disaster Subgroup</th>
+      <th>Disaster Type</th>
+      <th>Disaster Subtype</th>
+      <th>External IDs</th>
+      <th>Event Name</th>
+      <th>ISO</th>
+      <th>...</th>
+      <th>Reconstruction Costs ('000 US$)</th>
+      <th>Reconstruction Costs, Adjusted ('000 US$)</th>
+      <th>Insured Damage ('000 US$)</th>
+      <th>Insured Damage, Adjusted ('000 US$)</th>
+      <th>Total Damage ('000 US$)</th>
+      <th>Total Damage, Adjusted ('000 US$)</th>
+      <th>CPI</th>
+      <th>Admin Units</th>
+      <th>Entry Date</th>
+      <th>Last Update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12583</th>
+      <td>2013-0060-RUS</td>
+      <td>No</td>
+      <td>nat-ext-imp-col</td>
+      <td>Natural</td>
+      <td>Extra-terrestrial</td>
+      <td>Impact</td>
+      <td>Collision</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>RUS</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>33000.0</td>
+      <td>44436.0</td>
+      <td>74.263729</td>
+      <td>[{"adm1_code":2499,"adm1_name":"Chelyabinskaya...</td>
+      <td>2014-03-21</td>
+      <td>2024-02-06</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 46 columns</p>
+</div>
+
+
+
+<p>Note that we did not create a new object, we merely extracted some information and displayed it.</p>
+<p>An alternative way to achieve the same (and there are always different ways to achieve the same thing) is:</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emdat</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;`Disaster Subgroup` == &#39;Extra-terrestrial&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DisNo.</th>
+      <th>Historic</th>
+      <th>Classification Key</th>
+      <th>Disaster Group</th>
+      <th>Disaster Subgroup</th>
+      <th>Disaster Type</th>
+      <th>Disaster Subtype</th>
+      <th>External IDs</th>
+      <th>Event Name</th>
+      <th>ISO</th>
+      <th>...</th>
+      <th>Reconstruction Costs ('000 US$)</th>
+      <th>Reconstruction Costs, Adjusted ('000 US$)</th>
+      <th>Insured Damage ('000 US$)</th>
+      <th>Insured Damage, Adjusted ('000 US$)</th>
+      <th>Total Damage ('000 US$)</th>
+      <th>Total Damage, Adjusted ('000 US$)</th>
+      <th>CPI</th>
+      <th>Admin Units</th>
+      <th>Entry Date</th>
+      <th>Last Update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12583</th>
+      <td>2013-0060-RUS</td>
+      <td>No</td>
+      <td>nat-ext-imp-col</td>
+      <td>Natural</td>
+      <td>Extra-terrestrial</td>
+      <td>Impact</td>
+      <td>Collision</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>RUS</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>33000.0</td>
+      <td>44436.0</td>
+      <td>74.263729</td>
+      <td>[{"adm1_code":2499,"adm1_name":"Chelyabinskaya...</td>
+      <td>2014-03-21</td>
+      <td>2024-02-06</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 46 columns</p>
+</div>
+
+
+
+<p>Being able to access particular elements in a dataframe is a very important skill. You can discover different techniques on <a href="https://datasquad.github.io/ECLR/Py_coding/Py_FirstStep.html#Accessing_Data">ECLR</a>.</p>
+<p>And here is a <a href="https://www.skyatnightmagazine.com/space-science/chelyabinsk-meteorite">BBC article</a> on the meteorite.</p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+<p>Complete the code below to extract the event.</p>
+<hr>
+<h4 id="PRACTICE">PRACTICE<a class="anchor-link" href="#PRACTICE">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Task">Task<a class="anchor-link" href="#Task">&#182;</a></h5><p>Find the disaster event by which 330000000 people were affected.</p>
+<h5 id="Hint">Hint<a class="anchor-link" href="#Hint">&#182;</a></h5><p>The number 330000000 is the maximum number of people affected by a natural diaster in the database. Use the same technique used above.</p>
+<div class="highlight"><pre><span></span><span class="n">emdat</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">emdat</span><span class="p">[</span><span class="n">XXXX</span><span class="p">]</span> <span class="o">==</span> <span class="n">XXXX</span><span class="p">]</span>
+</pre></div>
+<h5 id="Solution-check">Solution check<a class="anchor-link" href="#Solution-check">&#182;</a></h5><p>You got it right if you get the following event:</p>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DisNo.</th>
+      <th>Historic</th>
+      <th>Classification Key</th>
+      <th>Disaster Group</th>
+      <th>Disaster Subgroup</th>
+      <th>Disaster Type</th>
+      <th>Disaster Subtype</th>
+      <th>External IDs</th>
+      <th>Event Name</th>
+      <th>ISO</th>
+      <th>...</th>
+      <th>Reconstruction Costs ('000 US$)</th>
+      <th>Reconstruction Costs, Adjusted ('000 US$)</th>
+      <th>Insured Damage ('000 US$)</th>
+      <th>Insured Damage, Adjusted ('000 US$)</th>
+      <th>Total Damage ('000 US$)</th>
+      <th>Total Damage, Adjusted ('000 US$)</th>
+      <th>CPI</th>
+      <th>Admin Units</th>
+      <th>Entry Date</th>
+      <th>Last Update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>13639</th>
+      <td>2015-9618-IND</td>
+      <td>No</td>
+      <td>nat-cli-dro-dro</td>
+      <td>Natural</td>
+      <td>Climatological</td>
+      <td>Drought</td>
+      <td>Drought</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>IND</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>400000.0</td>
+      <td>529395.0</td>
+      <td>3000000.0</td>
+      <td>3970461.0</td>
+      <td>75.557977</td>
+      <td>[{"adm1_code":1485,"adm1_name":"Andhra Pradesh...</td>
+      <td>2016-04-11</td>
+      <td>2024-04-09</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 46 columns</p>
+</div>
+
+
+
+<p>You should find that the code extracts event "2015-9618-IND". The natural catastrophe that affected more than 300 Mio people was a drought in the Indian subcontinent.</p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+
+<h2 id="Simple-summary-statistics">Simple summary statistics<a class="anchor-link" href="#Simple-summary-statistics">&#182;</a></h2><p>The following is one fo the most common type of data analysis.</p>
+<p>In order to better understand what type of disasters the different subgroups represent we can look at the following bit of code, which uses piping:</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_1</span> <span class="o">=</span> <span class="n">emdat</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Disaster Subgroup&#39;</span><span class="p">,</span> <span class="s1">&#39;Disaster Type&#39;</span><span class="p">])</span> \ 
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;DisNo.&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">),</span> <span class="n">Avg_Affected</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Total Affected&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">))</span> \
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># the &quot;\&quot; at the end of the line tells python that the statement continues on the next line</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">table_1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+
+<pre>    Disaster Subgroup                Disaster Type     n  Avg_Affected
+0          Biological              Animal incident     1  5.000000e+00
+1          Biological                     Epidemic  1514  3.851679e+04
+2          Biological                  Infestation    95  6.404400e+05
+3      Climatological                      Drought   796  5.504330e+06
+4      Climatological  Glacial lake outburst flood     5  2.951967e+04
+5      Climatological                     Wildfire   488  5.791003e+04
+6   Extra-terrestrial                       Impact     1  3.014910e+05
+7         Geophysical                   Earthquake  1617  1.762719e+05
+8         Geophysical          Mass movement (dry)    46  1.217211e+03
+9         Geophysical            Volcanic activity   278  4.403567e+04
+10       Hydrological                        Flood  6049  7.798324e+05
+11       Hydrological          Mass movement (wet)   848  3.781653e+04
+12     Meteorological          Extreme temperature   696  7.019187e+05
+13     Meteorological                          Fog     1           NaN
+14     Meteorological                        Storm  4853  4.267879e+05
+</pre>
+
+
+<hr>
+<h4 id="What-does-this-line-of-code-actually-do?">What does this line of code actually do?<a class="anchor-link" href="#What-does-this-line-of-code-actually-do?">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Reading-Code">Reading Code<a class="anchor-link" href="#Reading-Code">&#182;</a></h5><p>It is important to understand what the above operation does, or in other words it is an important skill to be able to read what a line of code does. Try to understand what the elements in that line do.</p>
+<p>We start with the dataframe <code>emdat</code> and then apply a method (<code>groupby</code>) but then another method is appended (<code>agg</code>). This way of working is called <strong>method chaining</strong> (for those familiar with working in R, this is rather similar to piping).</p>
+<p>So here it firsts groups the data by two variables and then continues to aggregate or summarise the resulting groups. Have another close look and see whether you can understand what is going on.</p>
+<h5 id="Where-to-find-help?">Where to find help?<a class="anchor-link" href="#Where-to-find-help?">&#182;</a></h5><p>One way to get support with this is to <a href="https://chatgpt.com/share/68b2f98f-5114-8010-bfba-0e4d8a1f8db3">ask a LLM like ChatGPT</a> to help you read that code.</p>
+<h5 id="Experiment-with-the-code">Experiment with the code<a class="anchor-link" href="#Experiment-with-the-code">&#182;</a></h5><p>A great way to understand what some code does is to experiment a little and see what happens if you change the code. A part of the code, the purpose of which is somewhat unclear, is that last method applied, <code>reset_index()</code>.</p>
+<p>The easiest way to figure out what this does is to leave that part of the code out and see what happens (or doesn't happen). Try that!</p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+<p>This is like a data production line. Just imagine how much work this would have been in Excel (although pivot tables get close to the convenience).</p>
+<hr>
+<h4 id="PRACTICE">PRACTICE<a class="anchor-link" href="#PRACTICE">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="The-task">The task<a class="anchor-link" href="#The-task">&#182;</a></h5><p>Now I want you to produce a similar table but group the data by <code>Region</code> and calculate the average aid received (<code>AID.Contr</code>) and the average total estimated damage (<code>Total.Damage</code>).</p>
+<h5 id="Hint">Hint<a class="anchor-link" href="#Hint">&#182;</a></h5><p>Copy and paste the previous table and adjust what needs adjusting.</p>
+<h5 id="The-rename-method-looks-complicated">The rename method looks complicated<a class="anchor-link" href="#The-rename-method-looks-complicated">&#182;</a></h5><p>here is the skeleton code:</p>
+<div class="highlight"><pre><span></span><span class="n">table2</span> <span class="o">=</span> <span class="n">emdat</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;XXXX&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">XXXX</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;DisNo.&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">),</span> 
+         <span class="n">Avg_Contribution</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;XXXX&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+         <span class="n">Avg_Total_Damage</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;XXXX&#39;</span><span class="p">,</span> <span class="s1">&#39;XXXX&#39;</span><span class="p">))</span> \
+    <span class="o">.</span><span class="n">XXXX</span><span class="p">()</span>
+
+<span class="n">XXXX</span><span class="p">(</span><span class="n">table2</span><span class="p">)</span>
+</pre></div>
+<h5 id="Complete-solution">Complete solution<a class="anchor-link" href="#Complete-solution">&#182;</a></h5><p>Here is the complete solution. But have you struggled enough? Struggling is an important part of the learning process.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table2</span> <span class="o">=</span> <span class="n">emdat</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Region&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;DisNo.&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">),</span> 
+         <span class="n">Avg_Contribution</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;AID.Contr&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+         <span class="n">Avg_Total_Damage</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Total.Damage&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">))</span> \
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">table2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+
+<pre>     Region     n  Avg_Contribution  Avg_Total_Damage
+0    Africa  3188       7889.918367      1.830913e+05
+1  Americas  4304      24435.508380      1.251189e+06
+2      Asia  6907      28062.363112      7.698964e+05
+3    Europe  2174       1882.113208      6.332938e+05
+4   Oceania   715       3566.204082      3.787227e+05
+</pre>
+
+
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+
+<hr>
+<h4 id="What-does-this-line-of-code-actually-do?">What does this line of code actually do?<a class="anchor-link" href="#What-does-this-line-of-code-actually-do?">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Reading-Code">Reading Code<a class="anchor-link" href="#Reading-Code">&#182;</a></h5><p>text 0</p>
+<h5 id="What-are-methods?">What are methods?<a class="anchor-link" href="#What-are-methods?">&#182;</a></h5><p>text 1</p>
+<h5 id="The-rename-method-looks-complicated">The rename method looks complicated<a class="anchor-link" href="#The-rename-method-looks-complicated">&#182;</a></h5><p>text 2</p>
+<h5 id="What-methods-are-there-for-dataframes?">What methods are there for dataframes?<a class="anchor-link" href="#What-methods-are-there-for-dataframes?">&#182;</a></h5><p>text 3</p>
 <h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
 <hr>
 
