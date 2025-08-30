@@ -13,7 +13,7 @@
     
     <meta property="author" content="Ralf Becker and Yichen Zhu" />
     
-    <meta property="date" content="2025-08-30 14:47:48" />
+    <meta property="date" content="2025-08-30 21:35:54" />
     
   
 
@@ -460,7 +460,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
           <h4>Ralf Becker and Yichen Zhu</h4>
           
           
-          <h4>2025-08-30 14:47:48</h4>
+          <h4>2025-08-30 21:35:54</h4>
           
         </header>
         
@@ -495,12 +495,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </pre></div>
 
 </div>
-
-<pre>The pretty_jupyter extension is already loaded. To reload it, use:
-  %reload_ext pretty_jupyter
-</pre>
-
-
 <h1 id="Aim">Aim<a class="anchor-link" href="#Aim">&#182;</a></h1><p>In this workthrough you will be exposed to some of the most basic, but also most relevant (and sometimes challenging) tasks in data analysis. In particular we will be using real-life data to understand whether natural disasters are becoming more frequent (potentially due to climate change) and whether the increased frequencies of these affects dis proportionally those countries that actually contributed least to climate change.</p>
 <p>This is written as if you have never been esposed to coding in R (or any other language). If you have, then lots of the initial sections will look very familiar to you. But this workthrough is also not meant to be a training guide to all the things we do. It is meant as an indication of what is possible and a demonstration of how data analysts actually work.</p>
 <p>Importantly, this walkthrough will also show some of the unglamorous tasks of an applied economist/data scientist, such as dealing with error messages and finding out how to solve coding issues.</p>
@@ -634,7 +628,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 
-            <div id="0XHyJg"></div>
+            <div id="tYDt6A"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -658,9 +652,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("0XHyJg").appendChild(div);
+                        document.getElementById("tYDt6A").appendChild(div);
                     };
-                    var e = document.getElementById("0XHyJg");
+                    var e = document.getElementById("tYDt6A");
                     e.appendChild(script);
                 })()
             </script>
@@ -889,12 +883,12 @@ dtype: object</pre>
       <th>Event Name</th>
       <th>ISO</th>
       <th>...</th>
-      <th>Reconstruction Costs ('000 US$)</th>
+      <th>Rec.Cost.adj</th>
       <th>Reconstruction Costs, Adjusted ('000 US$)</th>
-      <th>Insured Damage ('000 US$)</th>
-      <th>Insured Damage, Adjusted ('000 US$)</th>
-      <th>Total Damage ('000 US$)</th>
-      <th>Total Damage, Adjusted ('000 US$)</th>
+      <th>Ins.Damage</th>
+      <th>Ins.Damage.adj</th>
+      <th>Total.Damage</th>
+      <th>Total.Damage.adj</th>
       <th>CPI</th>
       <th>Admin Units</th>
       <th>Entry Date</th>
@@ -1041,12 +1035,12 @@ Name: count, dtype: int64</pre>
       <th>Event Name</th>
       <th>ISO</th>
       <th>...</th>
-      <th>Reconstruction Costs ('000 US$)</th>
+      <th>Rec.Cost.adj</th>
       <th>Reconstruction Costs, Adjusted ('000 US$)</th>
-      <th>Insured Damage ('000 US$)</th>
-      <th>Insured Damage, Adjusted ('000 US$)</th>
-      <th>Total Damage ('000 US$)</th>
-      <th>Total Damage, Adjusted ('000 US$)</th>
+      <th>Ins.Damage</th>
+      <th>Ins.Damage.adj</th>
+      <th>Total.Damage</th>
+      <th>Total.Damage.adj</th>
       <th>CPI</th>
       <th>Admin Units</th>
       <th>Entry Date</th>
@@ -1130,12 +1124,12 @@ Name: count, dtype: int64</pre>
       <th>Event Name</th>
       <th>ISO</th>
       <th>...</th>
-      <th>Reconstruction Costs ('000 US$)</th>
+      <th>Rec.Cost.adj</th>
       <th>Reconstruction Costs, Adjusted ('000 US$)</th>
-      <th>Insured Damage ('000 US$)</th>
-      <th>Insured Damage, Adjusted ('000 US$)</th>
-      <th>Total Damage ('000 US$)</th>
-      <th>Total Damage, Adjusted ('000 US$)</th>
+      <th>Ins.Damage</th>
+      <th>Ins.Damage.adj</th>
+      <th>Total.Damage</th>
+      <th>Total.Damage.adj</th>
       <th>CPI</th>
       <th>Admin Units</th>
       <th>Entry Date</th>
@@ -1219,12 +1213,12 @@ Name: count, dtype: int64</pre>
       <th>Event Name</th>
       <th>ISO</th>
       <th>...</th>
-      <th>Reconstruction Costs ('000 US$)</th>
+      <th>Rec.Cost.adj</th>
       <th>Reconstruction Costs, Adjusted ('000 US$)</th>
-      <th>Insured Damage ('000 US$)</th>
-      <th>Insured Damage, Adjusted ('000 US$)</th>
-      <th>Total Damage ('000 US$)</th>
-      <th>Total Damage, Adjusted ('000 US$)</th>
+      <th>Ins.Damage</th>
+      <th>Ins.Damage.adj</th>
+      <th>Total.Damage</th>
+      <th>Total.Damage.adj</th>
       <th>CPI</th>
       <th>Admin Units</th>
       <th>Entry Date</th>
@@ -1287,26 +1281,6 @@ Name: count, dtype: int64</pre>
 </pre></div>
 
 </div>
-
-<pre>    Disaster Subgroup                Disaster Type     n  Avg_Affected
-0          Biological              Animal incident     1  5.000000e+00
-1          Biological                     Epidemic  1514  3.851679e+04
-2          Biological                  Infestation    95  6.404400e+05
-3      Climatological                      Drought   796  5.504330e+06
-4      Climatological  Glacial lake outburst flood     5  2.951967e+04
-5      Climatological                     Wildfire   488  5.791003e+04
-6   Extra-terrestrial                       Impact     1  3.014910e+05
-7         Geophysical                   Earthquake  1617  1.762719e+05
-8         Geophysical          Mass movement (dry)    46  1.217211e+03
-9         Geophysical            Volcanic activity   278  4.403567e+04
-10       Hydrological                        Flood  6049  7.798324e+05
-11       Hydrological          Mass movement (wet)   848  3.781653e+04
-12     Meteorological          Extreme temperature   696  7.019187e+05
-13     Meteorological                          Fog     1           NaN
-14     Meteorological                        Storm  4853  4.267879e+05
-</pre>
-
-
 <hr>
 <h4 id="What-does-this-line-of-code-actually-do?">What does this line of code actually do?<a class="anchor-link" href="#What-does-this-line-of-code-actually-do?">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
 <h5 id="Reading-Code">Reading Code<a class="anchor-link" href="#Reading-Code">&#182;</a></h5><p>It is important to understand what the above operation does, or in other words it is an important skill to be able to read what a line of code does. Try to understand what the elements in that line do.</p>
@@ -1362,7 +1336,299 @@ Name: count, dtype: int64</pre>
 
 <h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
 <hr>
+<p>This is the end of Task 2, where we imported the database with natural disasters and did some initial data exploration.</p>
+<hr>
+<h4 id="Reflection">Reflection<a class="anchor-link" href="#Reflection">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Question">Question<a class="anchor-link" href="#Question">&#182;</a></h5><p>Why is it so important to save your work in a file (script file or jupyter workbook)?</p>
+<h5 id="What-are-methods?">What are methods?<a class="anchor-link" href="#What-are-methods?">&#182;</a></h5><p>Let's compare to working in EXCEL, which is perhaps the software you would have used for such work previously. Let's imagine it is the end of the day again and you are closing down your computer. You could have done all that work in EXCEL and may have produced great tables. Next morning you get up and you realise that you actually did need to know the original variable names. Well in EXCEL you would not know anymore what they are, as you changed them. YOu would have to go back to the original datafile (perhaps even download it again). Here, we still have the original datafile and you can just go to the code where you change the names and adjust that.</p>
+<p>Or you wanted to create summary tables using a different grouping variable. In EXCEL you would have to go through the process of creating the table again. Here, as everything is saved in a script, you just go to the line where you set the grouping variable, change it and press the Source button as that will the re-run your entire code.</p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
 
+<h1 id="Task-3:-A-Simple-Plot-Tells-a-Lot">Task 3: A Simple Plot Tells a Lot<a class="anchor-link" href="#Task-3:-A-Simple-Plot-Tells-a-Lot">&#182;</a></h1><p>Above we already presented some useful summary statistics, such as the mean or maximum for a numeric variable, or frequencies for categorical variables. However, often the best way to convey a story is to use graphs. Here we are using the extremely powerful <code>ggplot</code> function. This is not here to actually teach you how this works, but just to wet your appetite (you can find more detail on the graphing techniques on <a href="https://datasquad.github.io/ECLR/Py_Graphing/Py_GraphIntro.html">ECLR</a>]).</p>
+<p>As we are thinking about the impact of climate change there is a lot of talk about natural disasters becoming more frequent. Let us count the disasters of different types every year and then show this information as a time-series plot. This should demonstrate whether there is indeed an increasing number of natural disasters in the database.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_3</span> <span class="o">=</span> <span class="n">emdat</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Disaster Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Start Year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;DisNo.&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+
+</div>
+<p>Have a look at <code>table_3</code> to understand the structure of that object.</p>
+<hr>
+<h4 id="Investigate-the-data">Investigate the data<a class="anchor-link" href="#Investigate-the-data">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Question">Question<a class="anchor-link" href="#Question">&#182;</a></h5><p>Which of the following best describes the structure of <code>Table_3</code>?</p>
+<ul>
+<li>Each Disaster.Type-Year has its own row</li>
+<li>Each Disaster.Type has its own row, Years are in columns</li>
+<li>Each Country-Disaster.Type has its own row, Years are in columns</li>
+<li>Each Country-Years has its own row, Disaster.Types are in columns</li>
+<li>Each Country-Disaster.Type-Year has its own row</li>
+</ul>
+<h5 id="Answer">Answer<a class="anchor-link" href="#Answer">&#182;</a></h5><p>Correct Answer: 
+<strong> Each Disaster.Type-Year has its own row </strong></p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+<p>The following code produces a line graph.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_ts</span> <span class="o">=</span> <span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">table_3</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Start Year&#39;</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s1">&#39;Disaster Type&#39;</span><span class="p">))</span> <span class="o">+</span> 
+    <span class="n">geom_line</span><span class="p">())</span>
+<span class="n">plot_ts</span>
+</pre></div>
+
+</div>
+
+
+   <div id="UXylxm"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+   
+   (function() {
+   // ----------
+   
+   const forceImmediateRender = false;
+   const responsive = false;
+   
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+   
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+   
+   const containerDiv = document.getElementById("UXylxm");
+   let fig = null;
+   
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
+"data":{
+"Disaster Type":["Animal incident","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Fog","Glacial lake outburst flood","Glacial lake outburst flood","Glacial lake outburst flood","Glacial lake outburst flood","Impact","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Infestation","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (dry)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire"],
+"Start Year":[2014.0,1900.0,1903.0,1906.0,1910.0,1919.0,1920.0,1921.0,1928.0,1931.0,1940.0,1942.0,1943.0,1946.0,1947.0,1960.0,1961.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1973.0,1974.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1900.0,1901.0,1902.0,1903.0,1904.0,1905.0,1906.0,1907.0,1908.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1920.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1900.0,1901.0,1907.0,1909.0,1910.0,1917.0,1918.0,1919.0,1920.0,1921.0,1922.0,1923.0,1924.0,1926.0,1932.0,1935.0,1940.0,1945.0,1947.0,1950.0,1953.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1936.0,1951.0,1953.0,1955.0,1958.0,1961.0,1962.0,1963.0,1965.0,1966.0,1968.0,1971.0,1972.0,1973.0,1975.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1900.0,1903.0,1907.0,1909.0,1910.0,1911.0,1915.0,1917.0,1920.0,1924.0,1925.0,1926.0,1927.0,1928.0,1930.0,1931.0,1933.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1943.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1952.0,2021.0,2022.0,2023.0,2024.0,2013.0,1913.0,1930.0,1944.0,1974.0,1978.0,1979.0,1985.0,1986.0,1987.0,1988.0,1989.0,1991.0,1992.0,1993.0,1995.0,1997.0,1998.0,2000.0,2001.0,2004.0,2006.0,2009.0,2010.0,2019.0,2020.0,1903.0,1905.0,1908.0,1937.0,1955.0,1962.0,1963.0,1980.0,1982.0,1983.0,1985.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,2000.0,2002.0,2004.0,2006.0,2008.0,2009.0,2012.0,2013.0,2015.0,2017.0,2018.0,2024.0,1909.0,1910.0,1915.0,1923.0,1926.0,1930.0,1931.0,1932.0,1934.0,1936.0,1938.0,1941.0,1948.0,1949.0,1950.0,1951.0,1952.0,1954.0,1955.0,1956.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1900.0,1902.0,1903.0,1904.0,1905.0,1906.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1919.0,1920.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1900.0,1902.0,1903.0,1906.0,1911.0,1914.0,1919.0,1926.0,1930.0,1931.0,1937.0,1943.0,1944.0,1945.0,1946.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1956.0,1957.0,1960.0,1963.0,1964.0,1965.0,1966.0,1968.0,1969.0,1971.0,1973.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1911.0,1918.0,1922.0,1929.0,1939.0,1944.0,1947.0,1949.0,1956.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1973.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0],
+"n":[1.0,2.0,1.0,1.0,9.0,1.0,2.0,1.0,1.0,1.0,9.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,7.0,7.0,9.0,5.0,7.0,10.0,2.0,7.0,7.0,2.0,4.0,6.0,16.0,9.0,9.0,13.0,9.0,11.0,27.0,6.0,3.0,3.0,15.0,15.0,7.0,12.0,15.0,11.0,6.0,12.0,6.0,6.0,18.0,20.0,23.0,27.0,22.0,25.0,14.0,11.0,19.0,9.0,11.0,16.0,18.0,17.0,16.0,21.0,9.0,18.0,29.0,14.0,11.0,16.0,16.0,11.0,17.0,23.0,14.0,12.0,1.0,1.0,4.0,5.0,3.0,6.0,6.0,2.0,2.0,8.0,4.0,5.0,1.0,4.0,6.0,3.0,2.0,4.0,3.0,5.0,3.0,7.0,6.0,8.0,1.0,4.0,7.0,2.0,15.0,6.0,6.0,5.0,3.0,7.0,11.0,3.0,2.0,7.0,7.0,8.0,8.0,9.0,6.0,8.0,10.0,3.0,7.0,7.0,7.0,7.0,13.0,9.0,5.0,6.0,6.0,7.0,5.0,3.0,8.0,3.0,4.0,3.0,7.0,8.0,13.0,15.0,16.0,11.0,12.0,6.0,7.0,8.0,6.0,5.0,21.0,14.0,9.0,21.0,17.0,15.0,15.0,26.0,13.0,17.0,21.0,15.0,15.0,19.0,41.0,29.0,25.0,20.0,25.0,26.0,13.0,22.0,30.0,33.0,29.0,24.0,37.0,38.0,42.0,25.0,24.0,21.0,22.0,22.0,22.0,30.0,27.0,29.0,25.0,23.0,30.0,22.0,20.0,31.0,16.0,28.0,31.0,32.0,14.0,1.0,1.0,1.0,2.0,1.0,1.0,3.0,1.0,3.0,1.0,1.0,3.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,3.0,3.0,6.0,2.0,5.0,4.0,14.0,4.0,2.0,1.0,2.0,1.0,3.0,22.0,21.0,3.0,8.0,5.0,7.0,7.0,12.0,13.0,11.0,25.0,20.0,16.0,18.0,43.0,28.0,4.0,10.0,25.0,45.0,62.0,73.0,77.0,113.0,68.0,83.0,32.0,34.0,53.0,56.0,35.0,41.0,44.0,41.0,27.0,24.0,22.0,21.0,16.0,25.0,25.0,17.0,37.0,7.0,7.0,18.0,21.0,14.0,2.0,2.0,3.0,1.0,2.0,1.0,1.0,2.0,1.0,2.0,2.0,1.0,2.0,3.0,3.0,1.0,1.0,4.0,3.0,2.0,2.0,2.0,1.0,8.0,2.0,5.0,6.0,5.0,13.0,8.0,7.0,3.0,9.0,13.0,5.0,13.0,12.0,8.0,28.0,20.0,15.0,25.0,16.0,30.0,24.0,25.0,10.0,25.0,27.0,15.0,51.0,14.0,17.0,12.0,12.0,10.0,27.0,21.0,5.0,3.0,40.0,45.0,18.0,1.0,2.0,3.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,4.0,2.0,2.0,1.0,1.0,2.0,1.0,1.0,3.0,2.0,2.0,3.0,2.0,1.0,1.0,5.0,2.0,10.0,7.0,4.0,12.0,9.0,3.0,9.0,11.0,3.0,13.0,7.0,8.0,8.0,8.0,22.0,19.0,23.0,26.0,20.0,14.0,31.0,15.0,15.0,20.0,17.0,17.0,16.0,47.0,48.0,34.0,39.0,43.0,47.0,48.0,46.0,57.0,49.0,66.0,75.0,46.0,60.0,75.0,58.0,84.0,88.0,92.0,92.0,95.0,94.0,121.0,144.0,152.0,164.0,156.0,125.0,191.0,226.0,217.0,163.0,151.0,187.0,154.0,136.0,151.0,136.0,157.0,159.0,130.0,127.0,195.0,202.0,222.0,177.0,163.0,143.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,2.0,13.0,15.0,17.0,1.0,1.0,1.0,3.0,4.0,1.0,1.0,2.0,2.0,12.0,1.0,1.0,1.0,2.0,8.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,3.0,2.0,1.0,3.0,3.0,2.0,3.0,4.0,2.0,1.0,1.0,1.0,1.0,3.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,1.0,1.0,8.0,2.0,5.0,1.0,1.0,2.0,2.0,2.0,2.0,1.0,6.0,4.0,2.0,4.0,1.0,6.0,6.0,5.0,5.0,10.0,5.0,6.0,3.0,2.0,7.0,4.0,8.0,12.0,16.0,6.0,6.0,9.0,14.0,15.0,15.0,5.0,9.0,8.0,25.0,11.0,16.0,24.0,13.0,22.0,18.0,28.0,24.0,19.0,21.0,15.0,13.0,20.0,10.0,12.0,28.0,32.0,16.0,13.0,10.0,15.0,20.0,13.0,25.0,12.0,25.0,19.0,12.0,17.0,24.0,32.0,1.0,1.0,2.0,1.0,1.0,3.0,5.0,1.0,2.0,5.0,1.0,1.0,2.0,1.0,2.0,1.0,2.0,1.0,2.0,6.0,2.0,3.0,7.0,4.0,7.0,2.0,3.0,4.0,5.0,3.0,4.0,7.0,5.0,3.0,2.0,2.0,3.0,4.0,3.0,3.0,5.0,7.0,5.0,7.0,10.0,8.0,7.0,11.0,9.0,11.0,10.0,19.0,14.0,9.0,13.0,16.0,20.0,14.0,13.0,21.0,22.0,19.0,27.0,25.0,25.0,25.0,24.0,22.0,26.0,22.0,28.0,25.0,30.0,29.0,38.0,30.0,36.0,46.0,51.0,55.0,53.0,49.0,53.0,57.0,60.0,72.0,135.0,66.0,76.0,107.0,80.0,80.0,76.0,79.0,88.0,106.0,96.0,100.0,117.0,84.0,124.0,130.0,76.0,103.0,110.0,87.0,92.0,82.0,91.0,105.0,99.0,120.0,86.0,130.0,96.0,93.0,130.0,119.0,109.0,139.0,147.0,1.0,5.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,3.0,1.0,1.0,1.0,1.0,1.0,1.0,3.0,1.0,1.0,2.0,2.0,2.0,3.0,1.0,3.0,5.0,5.0,2.0,4.0,2.0,1.0,3.0,7.0,7.0,2.0,2.0,2.0,4.0,1.0,2.0,10.0,5.0,6.0,6.0,5.0,5.0,4.0,4.0,5.0,5.0,5.0,6.0,2.0,5.0,8.0,12.0,6.0,7.0,2.0,6.0,6.0,1.0,3.0,6.0,6.0,2.0,9.0,4.0,4.0,9.0,5.0,4.0,6.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,2.0,2.0,11.0,7.0,12.0,5.0,7.0,2.0,4.0,8.0,8.0,2.0,13.0,7.0,4.0,15.0,18.0,21.0,27.0,14.0,21.0,14.0,8.0,13.0,10.0,17.0,5.0,9.0,7.0,8.0,6.0,10.0,4.0,13.0,10.0,15.0,10.0,14.0,9.0,19.0,15.0,17.0,21.0]
+},
+"mapping":{
+"x":"Start Year",
+"y":"n",
+"colour":"Disaster Type"
+},
+"data_meta":{
+"series_annotations":[{
+"type":"str",
+"column":"Disaster Type"
+},{
+"type":"int",
+"column":"Start Year"
+},{
+"type":"int",
+"column":"n"
+}]
+},
+"kind":"plot",
+"scales":[],
+"layers":[{
+"geom":"line",
+"mapping":{
+},
+"data_meta":{
+},
+"data":{
+}
+}],
+"metainfo_list":[],
+"spec_id":"2"
+};
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+   
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+   
+   if (renderImmediately) {
+       renderPlot();
+   }
+   
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+       
+       observer.observe(containerDiv);
+   }
+   
+   // ----------
+   })();
+   
+   </script>
+
+
+
+<hr>
+<h4 id="What-does-this-line-of-code-actually-do?">What does this line of code actually do?<a class="anchor-link" href="#What-does-this-line-of-code-actually-do?">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Reading-Code">Reading Code<a class="anchor-link" href="#Reading-Code">&#182;</a></h5><p>The <code>ggplot</code> functions allows you to build graphs in a fairly intuitive way. But, this is not really a session to learn the details of graphing in R.</p>
+<h5 id="But-I-am-curious?">But I am curious?<a class="anchor-link" href="#But-I-am-curious?">&#182;</a></h5><p>As you are curious, here is a quick run through of what the code does.</p>
+<ul>
+<li><code>plot_ts =</code>, A new object called <code>plot_ts</code> is created from the code on the right hand side of <code>=</code></li>
+<li><code>ggplot(table_3, )</code>, tells Python to create a plot using the data in <code>table_3</code>, although at this stage it doesn't know yet what plot.</li>
+<li><code>aes(y='n', x='Start Year', colour = 'Disaster Type')</code>, basically tells Python what should be on the axis of the plot, <code>Start Year</code> on the horizontal axis (<code>x</code>), the number of disasters per year (<code>n</code>) on the vertical axis and that the data should be separated (and shown in different colours) by <code>Disaster Type</code>. But we still have not instructed Python what type of plot to create.</li>
+<li><code>+ geom_line()</code>, this is where we instruct R to actually create a line plot with the earlier parameters (try <code>geom_points()</code> to see the difference). This concludes the plot creation.</li>
+<li><code>plot_ts</code>, this just instructs R to actually display the plot we saved in <code>plot_ts</code></li>
+</ul>
+<p>You can learn more about how to create great graphs with <code>ggplot</code> from <a href="https://datasquad.github.io/ECLR/Py_Graphing/Py_GraphIntro.html">this page on ECLR</a>.</p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+<p>We can immediately see that some of the events have seen massive increases. However, we need to be aware that there are issues with relying on this dataset. Some of these are discussed on the data's website, in particular what they call the <a href="https://doc.emdat.be/docs/known-issues-and-limitations/">time bias</a>, reflecting the insight that the increase in number of disasters may partly be driven by increased data collection.</p>
+<p>Reconsidering the plot above it is apparent that it is on the messy side as some categories are very small and make seeing the core information more difficult. So we will filter out event types that overall small number of observations.</p>
+<p>Let's look again at the Disaster Types and how many observations we have in each category:</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emdat</span><span class="p">[</span><span class="s1">&#39;Disaster Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+</div>
+
+
+
+<pre>Disaster Type
+Flood                          6049
+Storm                          4853
+Earthquake                     1617
+Epidemic                       1514
+Mass movement (wet)             848
+Drought                         796
+Extreme temperature             696
+Wildfire                        488
+Volcanic activity               278
+Infestation                      95
+Mass movement (dry)              46
+Glacial lake outburst flood       5
+Fog                               1
+Impact                            1
+Animal incident                   1
+Name: count, dtype: int64</pre>
+
+
+
+<p>We want to pick the types that have more than 200 incidents in the database. What we need is a list of names of event types that meet this criterion. The following achieves that</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sel_types</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;Storm&quot;</span><span class="p">,</span> <span class="s2">&quot;Flood&quot;</span><span class="p">,</span> <span class="s2">&quot;Epidemic&quot;</span><span class="p">,</span> <span class="s2">&quot;Volcanic activity&quot;</span><span class="p">,</span> <span class="s2">&quot;Earthquake&quot;</span><span class="p">,</span>                
+                <span class="s2">&quot;Drought&quot;</span> <span class="p">,</span>  <span class="s2">&quot;Mass movement (wet)&quot;</span> <span class="p">,</span><span class="s2">&quot;Wildfire&quot;</span><span class="p">,</span> <span class="s2">&quot;Extreme temperature&quot;</span> <span class="p">]</span>
+</pre></div>
+
+</div>
+<p>However, it is good to learn how to do this in an automatic way as these type of problems can be so big that it is impractical to do manually.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sel_types2</span> <span class="o">=</span> <span class="n">emdat</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Disaster Type&#39;</span><span class="p">)</span> \
+                          <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;DisNo.&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">))</span> \
+                          <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;n &gt; 199&#39;</span><span class="p">)</span> \
+                          <span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+
+</div>
+<p>You can again check with ChatGPT to ensure that you understand what these steps achieved.</p>
+<p>Why did we need a list of disaster types we want to focus on? The reason is that with that list in hand we can easily filter out the data we want to concentrate on. To do that we use the filter function, in particular we want to filter (i.e. keep) the data that relate to disaster types that are contained in <code>sel_types2</code>.</p>
+<p>Run the following code</p>
+<div class="highlight"><pre><span></span><span class="n">table_3</span> <span class="o">=</span> <span class="n">table3</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;`Disaster Type` in @sel_types2&quot;</span><span class="p">)</span>
+</pre></div>
+<p>When you do so you will get an error message, something like</p>
+<p><img src="images/Py_error3.png" alt="Image with Python error message: &quot;name &#39;table3&#39; is not defined&quot;"></p>
+
+<hr>
+<h4 id="Debugging-code">Debugging code<a class="anchor-link" href="#Debugging-code">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="What-does-the-error-message-say?">What does the error message say?<a class="anchor-link" href="#What-does-the-error-message-say?">&#182;</a></h5><p>Try to figure out what the problem is. The error message points at <code>table3</code> as the problem. What is <code>table3</code>?</p>
+<h5 id="What-are-debugging-strategies?">What are debugging strategies?<a class="anchor-link" href="#What-are-debugging-strategies?">&#182;</a></h5><p>Dealing with error messages is a bread and butter activity for anyone who works with data in the way we do here. Note the following about error messages:</p>
+<ul>
+<li>Receiving error messages is normal and you CANNOT break your computer</li>
+<li>Errors protect you from doing unwanted things to your data</li>
+<li>The error messages are SOMETIMES helpful in identifying the cause of the problem</li>
+<li>Sometimes the error messages point at a symptom rather than the root cause of the problem. (this is in fact the case here)</li>
+</ul>
+<p>Here are some tips on how to deal with error messages:</p>
+<ol>
+<li>Re-read what you typed, is it 'exactly' what you wanted? (Python is case sensitive!)</li>
+<li>Do the objects you refer to actually exist in the Environment?</li>
+<li>Re-run code one line at a time and identify line with error.</li>
+<li>Read error message and try to find anything that you can understand. Don't worry about the parts you don't understand – there will be lots!</li>
+</ol>
+<p>Can you fix the code?</p>
+<h5 id="Solution">Solution<a class="anchor-link" href="#Solution">&#182;</a></h5><p>We are not giving you the correct solution here. If you follow the above advice you will be able to fix the problem.</p>
+
+
+<p>Before this operation <code>table_3</code> had 864 rows of data. If that has reduced to 802 rows then you have achieved the correct result.</p>
+<p>Now we can re-run the graph.</p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_3</span> <span class="o">=</span> <span class="n">table3</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;`Disaster.Type` in @sel_types2&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
 <hr>
 <h4 id="What-does-this-line-of-code-actually-do?">What does this line of code actually do?<a class="anchor-link" href="#What-does-this-line-of-code-actually-do?">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
 <h5 id="Reading-Code">Reading Code<a class="anchor-link" href="#Reading-Code">&#182;</a></h5><p>text 0</p>
