@@ -13,7 +13,7 @@
     
     <meta property="author" content="Ralf Becker and Yichen Zhu" />
     
-    <meta property="date" content="2025-08-30 21:35:54" />
+    <meta property="date" content="2025-09-01 21:53:14" />
     
   
 
@@ -460,7 +460,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
           <h4>Ralf Becker and Yichen Zhu</h4>
           
           
-          <h4>2025-08-30 21:35:54</h4>
+          <h4>2025-09-01 21:53:14</h4>
           
         </header>
         
@@ -495,6 +495,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </pre></div>
 
 </div>
+
+<pre>The pretty_jupyter extension is already loaded. To reload it, use:
+  %reload_ext pretty_jupyter
+</pre>
+
+
 <h1 id="Aim">Aim<a class="anchor-link" href="#Aim">&#182;</a></h1><p>In this workthrough you will be exposed to some of the most basic, but also most relevant (and sometimes challenging) tasks in data analysis. In particular we will be using real-life data to understand whether natural disasters are becoming more frequent (potentially due to climate change) and whether the increased frequencies of these affects dis proportionally those countries that actually contributed least to climate change.</p>
 <p>This is written as if you have never been esposed to coding in R (or any other language). If you have, then lots of the initial sections will look very familiar to you. But this workthrough is also not meant to be a training guide to all the things we do. It is meant as an indication of what is possible and a demonstration of how data analysts actually work.</p>
 <p>Importantly, this walkthrough will also show some of the unglamorous tasks of an applied economist/data scientist, such as dealing with error messages and finding out how to solve coding issues.</p>
@@ -628,7 +634,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 
-            <div id="tYDt6A"></div>
+            <div id="OaAdAi"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -652,9 +658,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("tYDt6A").appendChild(div);
+                        document.getElementById("OaAdAi").appendChild(div);
                     };
-                    var e = document.getElementById("tYDt6A");
+                    var e = document.getElementById("OaAdAi");
                     e.appendChild(script);
                 })()
             </script>
@@ -662,17 +668,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 
-
-
-
-
-
-
-<div class="pj-input pj-fold fold-show">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
 <p>Loading a library needs doing everytime you load your script.</p>
 <p><strong>Key point:</strong></p>
 <p>Install a library: just do <strong>once</strong></p>
@@ -1271,8 +1266,8 @@ Name: count, dtype: int64</pre>
 
 
 <div class="pj-input pj-fold fold-show">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_1</span> <span class="o">=</span> <span class="n">emdat</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Disaster Subgroup&#39;</span><span class="p">,</span> <span class="s1">&#39;Disaster Type&#39;</span><span class="p">])</span> \ 
-    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;DisNo.&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">),</span> <span class="n">Avg_Affected</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Total Affected&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">))</span> \
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_1</span> <span class="o">=</span> <span class="n">emdat</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Disaster Subgroup&#39;</span><span class="p">,</span> <span class="s1">&#39;Disaster Type&#39;</span><span class="p">])</span>\
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;DisNo.&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">),</span> <span class="n">Avg_Affected</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Total Affected&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">))</span>\
     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
 <span class="c1"># the &quot;\&quot; at the end of the line tells python that the statement continues on the next line</span>
@@ -1281,6 +1276,26 @@ Name: count, dtype: int64</pre>
 </pre></div>
 
 </div>
+
+<pre>    Disaster Subgroup                Disaster Type     n  Avg_Affected
+0          Biological              Animal incident     1  5.000000e+00
+1          Biological                     Epidemic  1514  3.851679e+04
+2          Biological                  Infestation    95  6.404400e+05
+3      Climatological                      Drought   796  5.504330e+06
+4      Climatological  Glacial lake outburst flood     5  2.951967e+04
+5      Climatological                     Wildfire   488  5.791003e+04
+6   Extra-terrestrial                       Impact     1  3.014910e+05
+7         Geophysical                   Earthquake  1617  1.762719e+05
+8         Geophysical          Mass movement (dry)    46  1.217211e+03
+9         Geophysical            Volcanic activity   278  4.403567e+04
+10       Hydrological                        Flood  6049  7.798324e+05
+11       Hydrological          Mass movement (wet)   848  3.781653e+04
+12     Meteorological          Extreme temperature   696  7.019187e+05
+13     Meteorological                          Fog     1           NaN
+14     Meteorological                        Storm  4853  4.267879e+05
+</pre>
+
+
 <hr>
 <h4 id="What-does-this-line-of-code-actually-do?">What does this line of code actually do?<a class="anchor-link" href="#What-does-this-line-of-code-actually-do?">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
 <h5 id="Reading-Code">Reading Code<a class="anchor-link" href="#Reading-Code">&#182;</a></h5><p>It is important to understand what the above operation does, or in other words it is an important skill to be able to read what a line of code does. Try to understand what the elements in that line do.</p>
@@ -1362,7 +1377,7 @@ Name: count, dtype: int64</pre>
 <p>Have a look at <code>table_3</code> to understand the structure of that object.</p>
 <hr>
 <h4 id="Investigate-the-data">Investigate the data<a class="anchor-link" href="#Investigate-the-data">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
-<h5 id="Question">Question<a class="anchor-link" href="#Question">&#182;</a></h5><p>Which of the following best describes the structure of <code>Table_3</code>?</p>
+<h5 id="Question">Question<a class="anchor-link" href="#Question">&#182;</a></h5><p>Which of the following best describes the structure of <code>table_3</code>?</p>
 <ul>
 <li>Each Disaster.Type-Year has its own row</li>
 <li>Each Disaster.Type has its own row, Years are in columns</li>
@@ -1391,7 +1406,7 @@ Name: count, dtype: int64</pre>
 </div>
 
 
-   <div id="UXylxm"></div>
+   <div id="zfrCKK"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
    
    (function() {
@@ -1416,7 +1431,7 @@ Name: count, dtype: int64</pre>
        };
    }
    
-   const containerDiv = document.getElementById("UXylxm");
+   const containerDiv = document.getElementById("zfrCKK");
    let fig = null;
    
    function renderPlot() {
@@ -1456,7 +1471,7 @@ Name: count, dtype: int64</pre>
 }
 }],
 "metainfo_list":[],
-"spec_id":"2"
+"spec_id":"5"
 };
            window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
        } else {
@@ -1625,14 +1640,1530 @@ Name: count, dtype: int64</pre>
 
 
 <div class="pj-input pj-fold fold-show">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_3</span> <span class="o">=</span> <span class="n">table3</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;`Disaster.Type` in @sel_types2&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_ts</span> <span class="o">=</span> <span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">table_3</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Start Year&#39;</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s1">&#39;Disaster Type&#39;</span><span class="p">))</span> <span class="o">+</span> 
+    <span class="n">geom_line</span><span class="p">())</span>
+<span class="n">plot_ts</span>
+</pre></div>
+
+</div>
+
+
+   <div id="xCestm"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+   
+   (function() {
+   // ----------
+   
+   const forceImmediateRender = false;
+   const responsive = false;
+   
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+   
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+   
+   const containerDiv = document.getElementById("xCestm");
+   let fig = null;
+   
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
+"data":{
+"Disaster Type":["Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire"],
+"Start Year":[1900.0,1903.0,1906.0,1910.0,1919.0,1920.0,1921.0,1928.0,1931.0,1940.0,1942.0,1943.0,1946.0,1947.0,1960.0,1961.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1973.0,1974.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1900.0,1901.0,1902.0,1903.0,1904.0,1905.0,1906.0,1907.0,1908.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1920.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1900.0,1901.0,1907.0,1909.0,1910.0,1917.0,1918.0,1919.0,1920.0,1921.0,1922.0,1923.0,1924.0,1926.0,1932.0,1935.0,1940.0,1945.0,1947.0,1950.0,1953.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1936.0,1951.0,1953.0,1955.0,1958.0,1961.0,1962.0,1963.0,1965.0,1966.0,1968.0,1971.0,1972.0,1973.0,1975.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1900.0,1903.0,1907.0,1909.0,1910.0,1911.0,1915.0,1917.0,1920.0,1924.0,1925.0,1926.0,1927.0,1928.0,1930.0,1931.0,1933.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1943.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1909.0,1910.0,1915.0,1923.0,1926.0,1930.0,1931.0,1932.0,1934.0,1936.0,1938.0,1941.0,1948.0,1949.0,1950.0,1951.0,1952.0,1954.0,1955.0,1956.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1900.0,1902.0,1903.0,1904.0,1905.0,1906.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1919.0,1920.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1900.0,1902.0,1903.0,1906.0,1911.0,1914.0,1919.0,1926.0,1930.0,1931.0,1937.0,1943.0,1944.0,1945.0,1946.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1956.0,1957.0,1960.0,1963.0,1964.0,1965.0,1966.0,1968.0,1969.0,1971.0,1973.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1911.0,1918.0,1922.0,1929.0,1939.0,1944.0,1947.0,1949.0,1956.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1973.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0],
+"n":[2.0,1.0,1.0,9.0,1.0,2.0,1.0,1.0,1.0,9.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,7.0,7.0,9.0,5.0,7.0,10.0,2.0,7.0,7.0,2.0,4.0,6.0,16.0,9.0,9.0,13.0,9.0,11.0,27.0,6.0,3.0,3.0,15.0,15.0,7.0,12.0,15.0,11.0,6.0,12.0,6.0,6.0,18.0,20.0,23.0,27.0,22.0,25.0,14.0,11.0,19.0,9.0,11.0,16.0,18.0,17.0,16.0,21.0,9.0,18.0,29.0,14.0,11.0,16.0,16.0,11.0,17.0,23.0,14.0,12.0,1.0,1.0,4.0,5.0,3.0,6.0,6.0,2.0,2.0,8.0,4.0,5.0,1.0,4.0,6.0,3.0,2.0,4.0,3.0,5.0,3.0,7.0,6.0,8.0,1.0,4.0,7.0,2.0,15.0,6.0,6.0,5.0,3.0,7.0,11.0,3.0,2.0,7.0,7.0,8.0,8.0,9.0,6.0,8.0,10.0,3.0,7.0,7.0,7.0,7.0,13.0,9.0,5.0,6.0,6.0,7.0,5.0,3.0,8.0,3.0,4.0,3.0,7.0,8.0,13.0,15.0,16.0,11.0,12.0,6.0,7.0,8.0,6.0,5.0,21.0,14.0,9.0,21.0,17.0,15.0,15.0,26.0,13.0,17.0,21.0,15.0,15.0,19.0,41.0,29.0,25.0,20.0,25.0,26.0,13.0,22.0,30.0,33.0,29.0,24.0,37.0,38.0,42.0,25.0,24.0,21.0,22.0,22.0,22.0,30.0,27.0,29.0,25.0,23.0,30.0,22.0,20.0,31.0,16.0,28.0,31.0,32.0,14.0,1.0,1.0,1.0,2.0,1.0,1.0,3.0,1.0,3.0,1.0,1.0,3.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,3.0,3.0,6.0,2.0,5.0,4.0,14.0,4.0,2.0,1.0,2.0,1.0,3.0,22.0,21.0,3.0,8.0,5.0,7.0,7.0,12.0,13.0,11.0,25.0,20.0,16.0,18.0,43.0,28.0,4.0,10.0,25.0,45.0,62.0,73.0,77.0,113.0,68.0,83.0,32.0,34.0,53.0,56.0,35.0,41.0,44.0,41.0,27.0,24.0,22.0,21.0,16.0,25.0,25.0,17.0,37.0,7.0,7.0,18.0,21.0,14.0,2.0,2.0,3.0,1.0,2.0,1.0,1.0,2.0,1.0,2.0,2.0,1.0,2.0,3.0,3.0,1.0,1.0,4.0,3.0,2.0,2.0,2.0,1.0,8.0,2.0,5.0,6.0,5.0,13.0,8.0,7.0,3.0,9.0,13.0,5.0,13.0,12.0,8.0,28.0,20.0,15.0,25.0,16.0,30.0,24.0,25.0,10.0,25.0,27.0,15.0,51.0,14.0,17.0,12.0,12.0,10.0,27.0,21.0,5.0,3.0,40.0,45.0,18.0,1.0,2.0,3.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,4.0,2.0,2.0,1.0,1.0,2.0,1.0,1.0,3.0,2.0,2.0,3.0,2.0,1.0,1.0,5.0,2.0,10.0,7.0,4.0,12.0,9.0,3.0,9.0,11.0,3.0,13.0,7.0,8.0,8.0,8.0,22.0,19.0,23.0,26.0,20.0,14.0,31.0,15.0,15.0,20.0,17.0,17.0,16.0,47.0,48.0,34.0,39.0,43.0,47.0,48.0,46.0,57.0,49.0,66.0,75.0,46.0,60.0,75.0,58.0,84.0,88.0,92.0,92.0,95.0,94.0,121.0,144.0,152.0,164.0,156.0,125.0,191.0,226.0,217.0,163.0,151.0,187.0,154.0,136.0,151.0,136.0,157.0,159.0,130.0,127.0,195.0,202.0,222.0,177.0,163.0,143.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,1.0,1.0,8.0,2.0,5.0,1.0,1.0,2.0,2.0,2.0,2.0,1.0,6.0,4.0,2.0,4.0,1.0,6.0,6.0,5.0,5.0,10.0,5.0,6.0,3.0,2.0,7.0,4.0,8.0,12.0,16.0,6.0,6.0,9.0,14.0,15.0,15.0,5.0,9.0,8.0,25.0,11.0,16.0,24.0,13.0,22.0,18.0,28.0,24.0,19.0,21.0,15.0,13.0,20.0,10.0,12.0,28.0,32.0,16.0,13.0,10.0,15.0,20.0,13.0,25.0,12.0,25.0,19.0,12.0,17.0,24.0,32.0,1.0,1.0,2.0,1.0,1.0,3.0,5.0,1.0,2.0,5.0,1.0,1.0,2.0,1.0,2.0,1.0,2.0,1.0,2.0,6.0,2.0,3.0,7.0,4.0,7.0,2.0,3.0,4.0,5.0,3.0,4.0,7.0,5.0,3.0,2.0,2.0,3.0,4.0,3.0,3.0,5.0,7.0,5.0,7.0,10.0,8.0,7.0,11.0,9.0,11.0,10.0,19.0,14.0,9.0,13.0,16.0,20.0,14.0,13.0,21.0,22.0,19.0,27.0,25.0,25.0,25.0,24.0,22.0,26.0,22.0,28.0,25.0,30.0,29.0,38.0,30.0,36.0,46.0,51.0,55.0,53.0,49.0,53.0,57.0,60.0,72.0,135.0,66.0,76.0,107.0,80.0,80.0,76.0,79.0,88.0,106.0,96.0,100.0,117.0,84.0,124.0,130.0,76.0,103.0,110.0,87.0,92.0,82.0,91.0,105.0,99.0,120.0,86.0,130.0,96.0,93.0,130.0,119.0,109.0,139.0,147.0,1.0,5.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,3.0,1.0,1.0,1.0,1.0,1.0,1.0,3.0,1.0,1.0,2.0,2.0,2.0,3.0,1.0,3.0,5.0,5.0,2.0,4.0,2.0,1.0,3.0,7.0,7.0,2.0,2.0,2.0,4.0,1.0,2.0,10.0,5.0,6.0,6.0,5.0,5.0,4.0,4.0,5.0,5.0,5.0,6.0,2.0,5.0,8.0,12.0,6.0,7.0,2.0,6.0,6.0,1.0,3.0,6.0,6.0,2.0,9.0,4.0,4.0,9.0,5.0,4.0,6.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,1.0,2.0,1.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,2.0,2.0,11.0,7.0,12.0,5.0,7.0,2.0,4.0,8.0,8.0,2.0,13.0,7.0,4.0,15.0,18.0,21.0,27.0,14.0,21.0,14.0,8.0,13.0,10.0,17.0,5.0,9.0,7.0,8.0,6.0,10.0,4.0,13.0,10.0,15.0,10.0,14.0,9.0,19.0,15.0,17.0,21.0]
+},
+"mapping":{
+"x":"Start Year",
+"y":"n",
+"colour":"Disaster Type"
+},
+"data_meta":{
+"series_annotations":[{
+"type":"str",
+"column":"Disaster Type"
+},{
+"type":"int",
+"column":"Start Year"
+},{
+"type":"int",
+"column":"n"
+}]
+},
+"kind":"plot",
+"scales":[],
+"layers":[{
+"geom":"line",
+"mapping":{
+},
+"data_meta":{
+},
+"data":{
+}
+}],
+"metainfo_list":[],
+"spec_id":"6"
+};
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+   
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+   
+   if (renderImmediately) {
+       renderPlot();
+   }
+   
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+       
+       observer.observe(containerDiv);
+   }
+   
+   // ----------
+   })();
+   
+   </script>
+
+
+
+<p>It is still slighty messy. There are two ways to certainly improve the readability of the graph. We could smooth the data series to get a more obvious picture of the time trend. We will not do this here as it will require a bit more work. Another aspect would be to only display data from 1970 onwards. It does appear as before that date the activity stays approximately constant.</p>
+<p>Use the <code>query</code> method to remove all data up to 1969 and then re-plot the graph.</p>
+<div class="highlight"><pre><span></span><span class="n">table_3</span> <span class="o">=</span> <span class="n">table_3</span><span class="o">.</span><span class="n">XXXX</span><span class="p">(</span><span class="s2">&quot;`Start Year` &gt; XXXX&quot;</span><span class="p">)</span>
+<span class="n">plot_ts</span> <span class="o">=</span> <span class="p">(</span><span class="n">XXXX</span><span class="p">(</span><span class="n">XXXX</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;XXXX&#39;</span><span class="p">,</span> <span class="n">XXXX</span><span class="o">=</span><span class="s1">&#39;Start Year&#39;</span><span class="p">,</span> <span class="n">XXXX</span> <span class="o">=</span> <span class="s1">&#39;XXXX&#39;</span><span class="p">))</span> <span class="o">+</span> 
+    <span class="n">geom_line</span><span class="p">())</span>
+<span class="n">plot_ts</span>
+</pre></div>
+
+
+
+
+   <div id="dnvkjf"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+   
+   (function() {
+   // ----------
+   
+   const forceImmediateRender = false;
+   const responsive = false;
+   
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+   
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+   
+   const containerDiv = document.getElementById("dnvkjf");
+   let fig = null;
+   
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
+"data":{
+"Disaster Type":["Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire"],
+"Start Year":[1970.0,1971.0,1972.0,1973.0,1974.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1970.0,1971.0,1972.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1971.0,1972.0,1973.0,1975.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1971.0,1973.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1970.0,1973.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0],
+"n":[2.0,7.0,7.0,2.0,4.0,6.0,16.0,9.0,9.0,13.0,9.0,11.0,27.0,6.0,3.0,3.0,15.0,15.0,7.0,12.0,15.0,11.0,6.0,12.0,6.0,6.0,18.0,20.0,23.0,27.0,22.0,25.0,14.0,11.0,19.0,9.0,11.0,16.0,18.0,17.0,16.0,21.0,9.0,18.0,29.0,14.0,11.0,16.0,16.0,11.0,17.0,23.0,14.0,12.0,12.0,6.0,7.0,8.0,6.0,5.0,21.0,14.0,9.0,21.0,17.0,15.0,15.0,26.0,13.0,17.0,21.0,15.0,15.0,19.0,41.0,29.0,25.0,20.0,25.0,26.0,13.0,22.0,30.0,33.0,29.0,24.0,37.0,38.0,42.0,25.0,24.0,21.0,22.0,22.0,22.0,30.0,27.0,29.0,25.0,23.0,30.0,22.0,20.0,31.0,16.0,28.0,31.0,32.0,14.0,4.0,2.0,1.0,2.0,1.0,3.0,22.0,21.0,3.0,8.0,5.0,7.0,7.0,12.0,13.0,11.0,25.0,20.0,16.0,18.0,43.0,28.0,4.0,10.0,25.0,45.0,62.0,73.0,77.0,113.0,68.0,83.0,32.0,34.0,53.0,56.0,35.0,41.0,44.0,41.0,27.0,24.0,22.0,21.0,16.0,25.0,25.0,17.0,37.0,7.0,7.0,18.0,21.0,14.0,1.0,2.0,3.0,3.0,1.0,1.0,4.0,3.0,2.0,2.0,2.0,1.0,8.0,2.0,5.0,6.0,5.0,13.0,8.0,7.0,3.0,9.0,13.0,5.0,13.0,12.0,8.0,28.0,20.0,15.0,25.0,16.0,30.0,24.0,25.0,10.0,25.0,27.0,15.0,51.0,14.0,17.0,12.0,12.0,10.0,27.0,21.0,5.0,3.0,40.0,45.0,18.0,31.0,15.0,15.0,20.0,17.0,17.0,16.0,47.0,48.0,34.0,39.0,43.0,47.0,48.0,46.0,57.0,49.0,66.0,75.0,46.0,60.0,75.0,58.0,84.0,88.0,92.0,92.0,95.0,94.0,121.0,144.0,152.0,164.0,156.0,125.0,191.0,226.0,217.0,163.0,151.0,187.0,154.0,136.0,151.0,136.0,157.0,159.0,130.0,127.0,195.0,202.0,222.0,177.0,163.0,143.0,6.0,6.0,5.0,5.0,10.0,5.0,6.0,3.0,2.0,7.0,4.0,8.0,12.0,16.0,6.0,6.0,9.0,14.0,15.0,15.0,5.0,9.0,8.0,25.0,11.0,16.0,24.0,13.0,22.0,18.0,28.0,24.0,19.0,21.0,15.0,13.0,20.0,10.0,12.0,28.0,32.0,16.0,13.0,10.0,15.0,20.0,13.0,25.0,12.0,25.0,19.0,12.0,17.0,24.0,32.0,24.0,22.0,26.0,22.0,28.0,25.0,30.0,29.0,38.0,30.0,36.0,46.0,51.0,55.0,53.0,49.0,53.0,57.0,60.0,72.0,135.0,66.0,76.0,107.0,80.0,80.0,76.0,79.0,88.0,106.0,96.0,100.0,117.0,84.0,124.0,130.0,76.0,103.0,110.0,87.0,92.0,82.0,91.0,105.0,99.0,120.0,86.0,130.0,96.0,93.0,130.0,119.0,109.0,139.0,147.0,3.0,1.0,3.0,5.0,5.0,2.0,4.0,2.0,1.0,3.0,7.0,7.0,2.0,2.0,2.0,4.0,1.0,2.0,10.0,5.0,6.0,6.0,5.0,5.0,4.0,4.0,5.0,5.0,5.0,6.0,2.0,5.0,8.0,12.0,6.0,7.0,2.0,6.0,6.0,1.0,3.0,6.0,6.0,2.0,9.0,4.0,4.0,9.0,5.0,4.0,6.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,2.0,2.0,11.0,7.0,12.0,5.0,7.0,2.0,4.0,8.0,8.0,2.0,13.0,7.0,4.0,15.0,18.0,21.0,27.0,14.0,21.0,14.0,8.0,13.0,10.0,17.0,5.0,9.0,7.0,8.0,6.0,10.0,4.0,13.0,10.0,15.0,10.0,14.0,9.0,19.0,15.0,17.0,21.0]
+},
+"mapping":{
+"x":"Start Year",
+"y":"n",
+"colour":"Disaster Type"
+},
+"data_meta":{
+"series_annotations":[{
+"type":"str",
+"column":"Disaster Type"
+},{
+"type":"int",
+"column":"Start Year"
+},{
+"type":"int",
+"column":"n"
+}]
+},
+"kind":"plot",
+"scales":[],
+"layers":[{
+"geom":"line",
+"mapping":{
+},
+"data_meta":{
+},
+"data":{
+}
+}],
+"metainfo_list":[],
+"spec_id":"7"
+};
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+   
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+   
+   if (renderImmediately) {
+       renderPlot();
+   }
+   
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+       
+       observer.observe(containerDiv);
+   }
+   
+   // ----------
+   })();
+   
+   </script>
+
+
+
+<p>There are perhaps still too many lines to see clearly how these different types develop. There is a fairly straightforward way to visually disentangle these.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_ts</span> <span class="o">=</span> <span class="n">plot_ts</span> <span class="o">+</span> \
+            <span class="n">facet_wrap</span><span class="p">([</span><span class="s2">&quot;Disaster Type&quot;</span><span class="p">],</span> <span class="n">nrow</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plot_ts</span>
+</pre></div>
+
+</div>
+
+
+   <div id="IeyimA"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+   
+   (function() {
+   // ----------
+   
+   const forceImmediateRender = false;
+   const responsive = false;
+   
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+   
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+   
+   const containerDiv = document.getElementById("IeyimA");
+   let fig = null;
+   
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
+"data":{
+"Disaster Type":["Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Drought","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Earthquake","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Epidemic","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Extreme temperature","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Flood","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Mass movement (wet)","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Storm","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Volcanic activity","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire","Wildfire"],
+"Start Year":[1970.0,1971.0,1972.0,1973.0,1974.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1970.0,1971.0,1972.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1971.0,1972.0,1973.0,1975.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1970.0,1971.0,1972.0,1973.0,1974.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1971.0,1973.0,1975.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1988.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0,1970.0,1973.0,1976.0,1977.0,1978.0,1979.0,1980.0,1981.0,1982.0,1983.0,1984.0,1985.0,1986.0,1987.0,1989.0,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0,2020.0,2021.0,2022.0,2023.0,2024.0],
+"n":[2.0,7.0,7.0,2.0,4.0,6.0,16.0,9.0,9.0,13.0,9.0,11.0,27.0,6.0,3.0,3.0,15.0,15.0,7.0,12.0,15.0,11.0,6.0,12.0,6.0,6.0,18.0,20.0,23.0,27.0,22.0,25.0,14.0,11.0,19.0,9.0,11.0,16.0,18.0,17.0,16.0,21.0,9.0,18.0,29.0,14.0,11.0,16.0,16.0,11.0,17.0,23.0,14.0,12.0,12.0,6.0,7.0,8.0,6.0,5.0,21.0,14.0,9.0,21.0,17.0,15.0,15.0,26.0,13.0,17.0,21.0,15.0,15.0,19.0,41.0,29.0,25.0,20.0,25.0,26.0,13.0,22.0,30.0,33.0,29.0,24.0,37.0,38.0,42.0,25.0,24.0,21.0,22.0,22.0,22.0,30.0,27.0,29.0,25.0,23.0,30.0,22.0,20.0,31.0,16.0,28.0,31.0,32.0,14.0,4.0,2.0,1.0,2.0,1.0,3.0,22.0,21.0,3.0,8.0,5.0,7.0,7.0,12.0,13.0,11.0,25.0,20.0,16.0,18.0,43.0,28.0,4.0,10.0,25.0,45.0,62.0,73.0,77.0,113.0,68.0,83.0,32.0,34.0,53.0,56.0,35.0,41.0,44.0,41.0,27.0,24.0,22.0,21.0,16.0,25.0,25.0,17.0,37.0,7.0,7.0,18.0,21.0,14.0,1.0,2.0,3.0,3.0,1.0,1.0,4.0,3.0,2.0,2.0,2.0,1.0,8.0,2.0,5.0,6.0,5.0,13.0,8.0,7.0,3.0,9.0,13.0,5.0,13.0,12.0,8.0,28.0,20.0,15.0,25.0,16.0,30.0,24.0,25.0,10.0,25.0,27.0,15.0,51.0,14.0,17.0,12.0,12.0,10.0,27.0,21.0,5.0,3.0,40.0,45.0,18.0,31.0,15.0,15.0,20.0,17.0,17.0,16.0,47.0,48.0,34.0,39.0,43.0,47.0,48.0,46.0,57.0,49.0,66.0,75.0,46.0,60.0,75.0,58.0,84.0,88.0,92.0,92.0,95.0,94.0,121.0,144.0,152.0,164.0,156.0,125.0,191.0,226.0,217.0,163.0,151.0,187.0,154.0,136.0,151.0,136.0,157.0,159.0,130.0,127.0,195.0,202.0,222.0,177.0,163.0,143.0,6.0,6.0,5.0,5.0,10.0,5.0,6.0,3.0,2.0,7.0,4.0,8.0,12.0,16.0,6.0,6.0,9.0,14.0,15.0,15.0,5.0,9.0,8.0,25.0,11.0,16.0,24.0,13.0,22.0,18.0,28.0,24.0,19.0,21.0,15.0,13.0,20.0,10.0,12.0,28.0,32.0,16.0,13.0,10.0,15.0,20.0,13.0,25.0,12.0,25.0,19.0,12.0,17.0,24.0,32.0,24.0,22.0,26.0,22.0,28.0,25.0,30.0,29.0,38.0,30.0,36.0,46.0,51.0,55.0,53.0,49.0,53.0,57.0,60.0,72.0,135.0,66.0,76.0,107.0,80.0,80.0,76.0,79.0,88.0,106.0,96.0,100.0,117.0,84.0,124.0,130.0,76.0,103.0,110.0,87.0,92.0,82.0,91.0,105.0,99.0,120.0,86.0,130.0,96.0,93.0,130.0,119.0,109.0,139.0,147.0,3.0,1.0,3.0,5.0,5.0,2.0,4.0,2.0,1.0,3.0,7.0,7.0,2.0,2.0,2.0,4.0,1.0,2.0,10.0,5.0,6.0,6.0,5.0,5.0,4.0,4.0,5.0,5.0,5.0,6.0,2.0,5.0,8.0,12.0,6.0,7.0,2.0,6.0,6.0,1.0,3.0,6.0,6.0,2.0,9.0,4.0,4.0,9.0,5.0,4.0,6.0,1.0,2.0,1.0,1.0,1.0,1.0,1.0,2.0,2.0,11.0,7.0,12.0,5.0,7.0,2.0,4.0,8.0,8.0,2.0,13.0,7.0,4.0,15.0,18.0,21.0,27.0,14.0,21.0,14.0,8.0,13.0,10.0,17.0,5.0,9.0,7.0,8.0,6.0,10.0,4.0,13.0,10.0,15.0,10.0,14.0,9.0,19.0,15.0,17.0,21.0]
+},
+"mapping":{
+"x":"Start Year",
+"y":"n",
+"colour":"Disaster Type"
+},
+"data_meta":{
+"series_annotations":[{
+"type":"str",
+"column":"Disaster Type"
+},{
+"type":"int",
+"column":"Start Year"
+},{
+"type":"int",
+"column":"n"
+}]
+},
+"facet":{
+"name":"wrap",
+"facets":["Disaster Type"],
+"ncol":3.0,
+"nrow":3.0,
+"order":1.0,
+"dir":"h"
+},
+"kind":"plot",
+"scales":[],
+"layers":[{
+"geom":"line",
+"mapping":{
+},
+"data_meta":{
+},
+"data":{
+}
+}],
+"metainfo_list":[],
+"spec_id":"8"
+};
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+   
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+   
+   if (renderImmediately) {
+       renderPlot();
+   }
+   
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+       
+       observer.observe(containerDiv);
+   }
+   
+   // ----------
+   })();
+   
+   </script>
+
+
+
+<p>What is remarkable here, and one of the reasons why the <code>ggplot</code> functions are so popular, is that you can add functionality to an existing plot (here <code>ts_plot</code>). In particular we keep teh previous plot but do isntruct Python to split the graph into seperate plots by <code>Disaster Type</code>. This is what <code>+ facet_wrap(["Disaster Type"], nrow = 3, ncol = 3)</code> does.</p>
+<p>The two disaster types that have seen a very obvious increase are floods (green) and storms (storms), but wildfires, wet mass movements and extreme temperatures have also seen a steady increase (note that all graphs are on identical scales). All of these can plausibly be linked to climate change. The two geological events (earthquakes and volcanic eruptions) have not seen an obvious increase.</p>
+
+<h1 id="Country-level-emission-data">Country level emission data<a class="anchor-link" href="#Country-level-emission-data">&#182;</a></h1><p>It is often said that the effects of climate change do predominantly hit the countries that are not actually responsible for the bulk of the greenhouse gas (GHG) emissions that cause rising temperatures. In the disaster database we have information on which countries are affected by natural disasters only. We will now link the data from the disaster dataset with another dataset from which we can get information on GHG. Linking datasets is an extremely important activity for anyone dealing with real life data, an activity deserving a place in such an introduction.</p>
+<p>That dataset is the <a href="https://edgar.jrc.ec.europa.eu/dataset_ghg2024">EDGAR dataset</a> maintained by the European Union. We are downloading the 2024 version of the dataset, in particular the "EDGAR Total GHG in CO2eq" version.</p>
+<p><img src="images/EDGARlink.png" alt="Screenshot of EDGAR webpage">{width="50%"}</p>
+<p>When you download this you will get a zip file and you should extract the contents of the zip file into your working directory. One of the files is an EXCEL file called "EDGAR_AR5_GHG_1970_2023.xlsx". Let us load this file.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">edgardat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;EDGAR_AR5_GHG_1970_2023.xlsx&quot;</span><span class="p">)</span> 
+<span class="n">edgardat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Conditions of use and how to cite</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>© European Union 2024, European Commission, Jo...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>All emissions, except for CO2 emissions from f...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>This does not look like a proper datafile. What has gone wrong? Not all mistakes generate an error message. Sometimes Python will do something but it is not what we want to achieve.</p>
+<p>Before uploading a datafile into Python it is important to understand the structure of the datefile. Hence we should actually open the file in EXCEL and look at it to understand its structure.</p>
+<p><img src="images/EDGAR_EXCEL_screenshot.png" alt="Screenshot of EDGAR data in EXCEL">{width="50%"}</p>
+<p>As you look at the file you will see that there are several tabs with data and by default the <code>read_excel</code> function imports the first. But that is not the one with the data we want. The sheet that contains the data we want to look at is called "TOTALS BY COUNTRY" (<code>sheet_name = "TOTALS BY COUNTRY"</code>). On that sheet we notice something else. The data sheet only starts in row 10 with the variable names. So when we import this we want to ignore the first 9 rows (<code>skiprow = 9</code>). We need to instruct Python to do that. Before you retry the import make sure that you close the spreadsheet.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">edgardat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;EDGAR_AR5_GHG_1970_2023.xlsx&quot;</span><span class="p">,</span> <span class="n">sheet_name</span> <span class="o">=</span> <span class="s2">&quot;TOTALS BY COUNTRY&quot;</span><span class="p">,</span> <span class="n">skiprows</span> <span class="o">=</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">edgardat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>IPCC_annex</th>
+      <th>C_group_IM24_sh</th>
+      <th>Country_code_A3</th>
+      <th>Name</th>
+      <th>Substance</th>
+      <th>Y_1970</th>
+      <th>Y_1971</th>
+      <th>Y_1972</th>
+      <th>Y_1973</th>
+      <th>Y_1974</th>
+      <th>...</th>
+      <th>Y_2014</th>
+      <th>Y_2015</th>
+      <th>Y_2016</th>
+      <th>Y_2017</th>
+      <th>Y_2018</th>
+      <th>Y_2019</th>
+      <th>Y_2020</th>
+      <th>Y_2021</th>
+      <th>Y_2022</th>
+      <th>Y_2023</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Non-Annex_I</td>
+      <td>Rest Central America</td>
+      <td>ABW</td>
+      <td>Aruba</td>
+      <td>GWP_100_AR5_GHG</td>
+      <td>36.713033</td>
+      <td>41.538132</td>
+      <td>52.390750</td>
+      <td>57.359887</td>
+      <td>56.630192</td>
+      <td>...</td>
+      <td>469.468414</td>
+      <td>490.990250</td>
+      <td>514.539464</td>
+      <td>496.140535</td>
+      <td>495.531919</td>
+      <td>588.997896</td>
+      <td>482.159941</td>
+      <td>531.201512</td>
+      <td>533.603088</td>
+      <td>561.497605</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Non-Annex_I</td>
+      <td>India +</td>
+      <td>AFG</td>
+      <td>Afghanistan</td>
+      <td>GWP_100_AR5_GHG</td>
+      <td>15437.430263</td>
+      <td>15364.077308</td>
+      <td>13316.628180</td>
+      <td>13934.875093</td>
+      <td>15177.862417</td>
+      <td>...</td>
+      <td>27420.132302</td>
+      <td>27408.331772</td>
+      <td>26633.998536</td>
+      <td>27691.927104</td>
+      <td>27553.281612</td>
+      <td>26982.776572</td>
+      <td>26646.320070</td>
+      <td>27643.074355</td>
+      <td>28614.071224</td>
+      <td>29460.052110</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Non-Annex_I</td>
+      <td>Southern_Africa</td>
+      <td>AGO</td>
+      <td>Angola</td>
+      <td>GWP_100_AR5_GHG</td>
+      <td>18998.762967</td>
+      <td>18866.057085</td>
+      <td>21459.002495</td>
+      <td>23018.940660</td>
+      <td>23685.423333</td>
+      <td>...</td>
+      <td>77295.699295</td>
+      <td>81775.030635</td>
+      <td>78875.889482</td>
+      <td>73424.409437</td>
+      <td>69504.638320</td>
+      <td>69910.831904</td>
+      <td>61680.081008</td>
+      <td>64408.994317</td>
+      <td>67210.841707</td>
+      <td>67700.756248</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Non-Annex_I</td>
+      <td>Rest Central America</td>
+      <td>AIA</td>
+      <td>Anguilla</td>
+      <td>GWP_100_AR5_GHG</td>
+      <td>3.355052</td>
+      <td>3.395956</td>
+      <td>3.533699</td>
+      <td>3.411377</td>
+      <td>3.694243</td>
+      <td>...</td>
+      <td>31.209941</td>
+      <td>31.334184</td>
+      <td>31.728472</td>
+      <td>32.475516</td>
+      <td>31.594224</td>
+      <td>30.947736</td>
+      <td>26.037062</td>
+      <td>25.224274</td>
+      <td>25.068398</td>
+      <td>26.210752</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Int. Aviation</td>
+      <td>Int. Aviation</td>
+      <td>AIR</td>
+      <td>Int. Aviation</td>
+      <td>GWP_100_AR5_GHG</td>
+      <td>172478.021013</td>
+      <td>172465.451921</td>
+      <td>182459.818548</td>
+      <td>190296.909848</td>
+      <td>183162.103533</td>
+      <td>...</td>
+      <td>514263.976095</td>
+      <td>543354.254566</td>
+      <td>567631.286648</td>
+      <td>597771.580137</td>
+      <td>624135.612321</td>
+      <td>633464.501865</td>
+      <td>302632.336740</td>
+      <td>335728.729280</td>
+      <td>416953.421848</td>
+      <td>498178.114415</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 59 columns</p>
+</div>
+
+
+
+<p>This has worked! Let's have a look at the structure of the <code>edgardat</code> object. We have 225 rows of data, one for each country. The real data are saved in columns which have the years in the title. So the structure is like this</p>
+<p>Country | Y_1970 | Y_1971 | ... | Y_2023 |
+|-------:|:------|:------|:------|:------|
+| Aruba | 36.7 | 41.5 | ... | 561.5 |
+| Afghanistan | 15437 | 15364 | ... | 29460.1 |
+| Angola | 18999 | 18866 | ... | 67700.8 |
+| ... | ... | ... | ... | ... |</p>
+<p>where the numbers are the CO2 equivalent GHG emissions for a particular country in a particular year.</p>
+<p>This way of presenting data is sometimes called a wide format. It is not the best format to have your data in if you want to work in Python (or any other language). We really want the data in what is called the long format:</p>
+<p>Country | Year | Value | Variable |
+|-------:|:------|:------|:------|
+| Aruba | 1970 | 36.7 | GHGem |
+| Aruba | 1971 | 41.5 | GHGem |
+| Aruba | ... | ... | ... |
+| Aruba | 2023 | 561.5 | GHGem |
+| Afghanistan | 1970 | 15437 | GHGem |
+| Afghanistan | 1971 | 15364 | GHGem |
+| Afghanistan | ... | ... | ... |
+| Afghanistan | 2023 | 29460.1 | GHGem |
+| Angola | 1970 | 18999 | GHGem |
+| Angola | 1971 | 18866 | GHGem |
+| Angola | ... | ... | ... |
+| Angola | 2023 | 67700.8 | GHGem |
+| ... | ... | ... | ... |</p>
+<p>If you only keep one variable you could do without the Variable column, but with that variable you can also keep several variables in the same structure. Basically each observation (Country-Year-Variable) has its own row.</p>
+<p>The question is then how to translate the current wide version into a long version.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Determine which variables should stay (indic_vars) and which should become a variable</span>
+<span class="n">indic_vars</span> <span class="o">=</span> <span class="n">edgardat</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># picks the first 5 (0 to 4) variable names</span>
+<span class="n">vars_to_year</span> <span class="o">=</span> <span class="n">edgardat</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span> <span class="c1"># picks the variable names that are years (from 6th variable to end)</span>
+
+<span class="c1"># Convert wide to long format</span>
+<span class="n">edgardat_long</span> <span class="o">=</span> <span class="n">edgardat</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span> <span class="o">=</span> <span class="n">indic_vars</span><span class="p">,</span> <span class="n">value_vars</span> <span class="o">=</span> <span class="n">vars_to_year</span><span class="p">,</span>
+                  <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;GHG.em&#39;</span><span class="p">)</span>
+
+<span class="c1"># Remove &quot;Y_&quot; prefix from &#39;YEAR&#39; column</span>
+<span class="n">edgardat_long</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">edgardat_long</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Y_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Convert &#39;Year&#39; column to integer</span>
+<span class="n">edgardat_long</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">edgardat_long</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+
+</div>
+<p>The above did the trick! Here is not really the place to explain the above in detail. Suffice to say that this is a reasonably common operation such that applied economists will know that the function to use is called <code>melt</code>. However, unless you do this on a very regular basis one is unlikely to remember all the detail of how to apply this function by heart.</p>
+<p>This is where ChatGPT (or another LLM) can become an excellent coding partner. You can check out this <a href="https://chatgpt.com/share/68b4a0ea-f3f4-8010-84c7-5f22e8542ce1">interaction with ChatGPT</a> to see how a well formulated query can deliver the solution (teh solution here is slightly adjusted). As you can see from this example you will have to give ChatGPT very clear instruction which includes a clear understanding of what it is you want.</p>
+<p>Now we have a file in which have we a measure of annual GHG emissions for all countries in all years. Among these countries we have for instance China (which is massive) but also Luxembourg (which is really small). We know that we should not really compare the GHG emissions for these two countries.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">edgardat_long</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;YEAR == 2023 and Name in [&#39;China&#39;, &#39;Luxembourg&#39;]&quot;</span><span class="p">)[[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;YEAR&quot;</span><span class="p">,</span> <span class="s2">&quot;GHG.em&quot;</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>YEAR</th>
+      <th>GHG.em</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>11962</th>
+      <td>China</td>
+      <td>2023</td>
+      <td>1.594399e+07</td>
+    </tr>
+    <tr>
+      <th>12044</th>
+      <td>Luxembourg</td>
+      <td>2023</td>
+      <td>7.860933e+03</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>Unsurprisingly China's emissions are much much larger. When dealing with issues like this we will compare per-capita statistics, i.e. we want to compare CO2 emissions per person living in a country. In order to be able to do that we first have to import population data for the countries we have.</p>
+<p>Annual population data are available from various sources. The "WorldBank_population.csv" file contains such data, from the World Bank. Let's import these. As this is a csv file you cannot use <code>read_excel</code> to import this file. Try and figure out which function will import this file.</p>
+<div class="highlight"><pre><span></span><span class="n">popdat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">XXXX</span><span class="p">(</span><span class="s2">&quot;WorldBank_population.csv&quot;</span><span class="p">)</span>
+<span class="n">popdat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country Name</th>
+      <th>Country Code</th>
+      <th>Indicator Name</th>
+      <th>Indicator Code</th>
+      <th>1960</th>
+      <th>1961</th>
+      <th>1962</th>
+      <th>1963</th>
+      <th>1964</th>
+      <th>1965</th>
+      <th>...</th>
+      <th>2015</th>
+      <th>2016</th>
+      <th>2017</th>
+      <th>2018</th>
+      <th>2019</th>
+      <th>2020</th>
+      <th>2021</th>
+      <th>2022</th>
+      <th>2023</th>
+      <th>2024</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Aruba</td>
+      <td>ABW</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>54922.0</td>
+      <td>55578.0</td>
+      <td>56320.0</td>
+      <td>57002.0</td>
+      <td>57619.0</td>
+      <td>58190.0</td>
+      <td>...</td>
+      <td>107906.0</td>
+      <td>108727.0</td>
+      <td>108735.0</td>
+      <td>108908.0</td>
+      <td>109203.0</td>
+      <td>108587.0</td>
+      <td>107700.0</td>
+      <td>107310.0</td>
+      <td>107359.0</td>
+      <td>107624.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Africa Eastern and Southern</td>
+      <td>AFE</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>130075728.0</td>
+      <td>133534923.0</td>
+      <td>137171659.0</td>
+      <td>140945536.0</td>
+      <td>144904094.0</td>
+      <td>149033472.0</td>
+      <td>...</td>
+      <td>607123269.0</td>
+      <td>623369401.0</td>
+      <td>640058741.0</td>
+      <td>657801085.0</td>
+      <td>675950189.0</td>
+      <td>694446100.0</td>
+      <td>713090928.0</td>
+      <td>731821393.0</td>
+      <td>750503764.0</td>
+      <td>769294618.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>9035043.0</td>
+      <td>9214083.0</td>
+      <td>9404406.0</td>
+      <td>9604487.0</td>
+      <td>9814318.0</td>
+      <td>10036008.0</td>
+      <td>...</td>
+      <td>33831764.0</td>
+      <td>34700612.0</td>
+      <td>35688935.0</td>
+      <td>36743039.0</td>
+      <td>37856121.0</td>
+      <td>39068979.0</td>
+      <td>40000412.0</td>
+      <td>40578842.0</td>
+      <td>41454761.0</td>
+      <td>42647492.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Africa Western and Central</td>
+      <td>AFW</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>97630925.0</td>
+      <td>99706674.0</td>
+      <td>101854756.0</td>
+      <td>104089175.0</td>
+      <td>106388440.0</td>
+      <td>108772632.0</td>
+      <td>...</td>
+      <td>418127845.0</td>
+      <td>429454743.0</td>
+      <td>440882906.0</td>
+      <td>452195915.0</td>
+      <td>463365429.0</td>
+      <td>474569351.0</td>
+      <td>485920997.0</td>
+      <td>497387180.0</td>
+      <td>509398589.0</td>
+      <td>521764076.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Angola</td>
+      <td>AGO</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>5231654.0</td>
+      <td>5301583.0</td>
+      <td>5354310.0</td>
+      <td>5408320.0</td>
+      <td>5464187.0</td>
+      <td>5521981.0</td>
+      <td>...</td>
+      <td>28157798.0</td>
+      <td>29183070.0</td>
+      <td>30234839.0</td>
+      <td>31297155.0</td>
+      <td>32375632.0</td>
+      <td>33451132.0</td>
+      <td>34532429.0</td>
+      <td>35635029.0</td>
+      <td>36749906.0</td>
+      <td>37885849.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 69 columns</p>
+</div>
+
+
+
+<p>This is another dataset in wide format (international institutions love data in wide format). Use the same approach as above to turn this dataset into a new object (<code>popdat_long</code>) which presents the data in long format. Complete the following code to achieve this.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Determine which variables should stay and which should become a variable</span>
+<span class="n">indic_vars</span> <span class="o">=</span> <span class="n">popdat</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="n">XXXX</span><span class="p">]</span>
+<span class="n">vars_to_year</span> <span class="o">=</span> <span class="n">popdat</span><span class="o">.</span><span class="n">XXXX</span><span class="p">[</span><span class="n">XXXX</span><span class="p">:]</span> 
+
+<span class="c1"># Convert wide to long format</span>
+<span class="n">popdat_long</span> <span class="o">=</span> <span class="n">popdat</span><span class="o">.</span><span class="n">XXXX</span><span class="p">(</span><span class="n">XXXX</span> <span class="o">=</span> <span class="n">indic_vars</span><span class="p">,</span> <span class="n">XXXX</span> <span class="o">=</span> <span class="n">XXXX</span><span class="p">,</span>
+                  <span class="n">XXXX</span> <span class="o">=</span> <span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="n">XXXX</span> <span class="o">=</span> <span class="s1">&#39;Population&#39;</span><span class="p">)</span>
+
+<span class="c1"># Convert &#39;YEAR&#39; column to integer</span>
+<span class="n">XXXX</span><span class="p">[</span><span class="s1">&#39;XXXX&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">XXXX</span><span class="p">[</span><span class="s1">&#39;XXXX&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">XXXX</span><span class="p">)</span>
+<span class="n">popdat_long</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+<hr>
+<h4 id="Solution">Solution<a class="anchor-link" href="#Solution">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Struggle-first">Struggle first<a class="anchor-link" href="#Struggle-first">&#182;</a></h5><p>The key to learning coding is to learn to struggle. So give it a go. That means trying things out, trying to understand error messages, googling and perhaps even asking your favourite LLM.</p>
+<h5 id="Hint">Hint<a class="anchor-link" href="#Hint">&#182;</a></h5><p>Go back to the previous translation of a wide to a long format dataframe and try and understand the role of <code>indic_vars</code> and <code>vars_to_year</code>. This is the key to understanding what is going on.</p>
+<p>Also try and understand why the <code>str.replace</code> is not needed.</p>
+<h5 id="Solution">Solution<a class="anchor-link" href="#Solution">&#182;</a></h5><div class="highlight"><pre><span></span><span class="c1"># Determine which variables should stay and which should become a variable </span>
+<span class="n">indic_vars</span> <span class="o">=</span> <span class="n">popdat</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span> <span class="c1"># picks the first 4 (0 to 3) variable names</span>
+<span class="n">vars_to_year</span> <span class="o">=</span> <span class="n">popdat</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="c1"># picks the variable names that are years (from 5th variable to end)</span>
+
+<span class="c1"># Convert wide to long format</span>
+<span class="n">popdat_long</span> <span class="o">=</span> <span class="n">popdat</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span> <span class="o">=</span> <span class="n">indic_vars</span><span class="p">,</span> <span class="n">value_vars</span> <span class="o">=</span> <span class="n">vars_to_year</span><span class="p">,</span>
+                  <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;YEAR&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Population&#39;</span><span class="p">)</span>
+
+<span class="c1"># Convert &#39;Year&#39; column to integer</span>
+<span class="n">popdat_long</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">popdat_long</span><span class="p">[</span><span class="s1">&#39;YEAR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">popdat_long</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country Name</th>
+      <th>Country Code</th>
+      <th>Indicator Name</th>
+      <th>Indicator Code</th>
+      <th>YEAR</th>
+      <th>Population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Aruba</td>
+      <td>ABW</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>1960</td>
+      <td>54922.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Africa Eastern and Southern</td>
+      <td>AFE</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>1960</td>
+      <td>130075728.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>1960</td>
+      <td>9035043.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Africa Western and Central</td>
+      <td>AFW</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>1960</td>
+      <td>97630925.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Angola</td>
+      <td>AGO</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>1960</td>
+      <td>5231654.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>In order to calculate per-capita emissions we now need to bring the population and GHG emission data together. What we will do is to merge the population data into the <code>edgar_long</code> dataset and once we have done that we can calculate the per-capita emissions. Before we apply the merge function we strip <code>popdat_long</code> down to the two variables on the basis of which we will merge ("Country.Code" and "Year") and the variable which we want to merge into <code>edgardat_long</code>, i.e. "pop".</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">popdat_long</span> <span class="o">=</span> <span class="n">popdat_long</span><span class="p">[[</span><span class="s2">&quot;Country Code&quot;</span><span class="p">,</span> <span class="s2">&quot;YEAR&quot;</span><span class="p">,</span> <span class="s2">&quot;Population&quot;</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+<p>Now we can merge this dataframe into <code>edgardat_long</code>.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Merge popdat_long into edgardat_long</span>
+<span class="n">edgardat_long</span> <span class="o">=</span> <span class="n">edgardat_long</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">popdat_long</span><span class="p">,</span> 
+                                    <span class="n">left_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country_code_A3&#39;</span><span class="p">,</span> <span class="s1">&#39;YEAR&#39;</span><span class="p">],</span> 
+                                    <span class="n">right_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;YEAR&#39;</span><span class="p">],</span> 
+                                    <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+
+<span class="c1"># Drop the redundant &#39;Country Code&#39; column after merging</span>
+<span class="n">edgardat_long</span> <span class="o">=</span> <span class="n">edgardat_long</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Code&#39;</span><span class="p">])</span>
+
+<span class="c1"># Display the first few rows of the merged dataframe</span>
+<span class="n">edgardat_long</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>IPCC_annex</th>
+      <th>C_group_IM24_sh</th>
+      <th>Country_code_A3</th>
+      <th>Name</th>
+      <th>Substance</th>
+      <th>YEAR</th>
+      <th>GHG.em</th>
+      <th>Population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Non-Annex_I</td>
+      <td>Rest Central America</td>
+      <td>ABW</td>
+      <td>Aruba</td>
+      <td>GWP_100_AR5_GHG</td>
+      <td>1970</td>
+      <td>36.713033</td>
+      <td>58950.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Non-Annex_I</td>
+      <td>India +</td>
+      <td>AFG</td>
+      <td>Afghanistan</td>
+      <td>GWP_100_AR5_GHG</td>
+      <td>1970</td>
+      <td>15437.430263</td>
+      <td>11290128.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Non-Annex_I</td>
+      <td>Southern_Africa</td>
+      <td>AGO</td>
+      <td>Angola</td>
+      <td>GWP_100_AR5_GHG</td>
+      <td>1970</td>
+      <td>18998.762967</td>
+      <td>5852788.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Non-Annex_I</td>
+      <td>Central Europe</td>
+      <td>ALB</td>
+      <td>Albania</td>
+      <td>GWP_100_AR5_GHG</td>
+      <td>1970</td>
+      <td>8224.850191</td>
+      <td>2135479.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Non-Annex_I</td>
+      <td>Middle_East</td>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>GWP_100_AR5_GHG</td>
+      <td>1970</td>
+      <td>29766.021550</td>
+      <td>286536.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>You will see that in <code>edgardat_long</code> we now also have the <code>Population</code> variable. The way we used the <code>merge</code> method was that we added what was in <code>popdat_long</code> to the <code>edgardat_long</code>.  it only kept those country-year observations for which we have population data (check <code>?merge</code> to see in the help function how you could change that).</p>
+<p>Now we can calculate the per capita GHG emissions. The data in the variable <code>GHG.em</code> are measured in the unit Gg, or Giga grams, which is equivalent to $10^9$ grams = 1000 tonnes. The new <code>GHG.em.pc</code> variable we will use the unit Tonnes per person.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">edgardat_long</span><span class="p">[</span><span class="s1">&#39;GHG.em.pc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">edgardat_long</span><span class="p">[</span><span class="s1">&#39;GHG.em&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">edgardat_long</span><span class="p">[</span><span class="s1">&#39;Population&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+<p>Now we can compare the GHG emissions of China and Luxembourg</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">edgardat_long</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;YEAR == 2023 and Name in [&#39;China&#39;, &#39;Luxembourg&#39;]&quot;</span><span class="p">)[[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;YEAR&quot;</span><span class="p">,</span> <span class="s2">&quot;GHG.em&quot;</span><span class="p">,</span> <span class="s2">&quot;GHG.em.pc&quot;</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>YEAR</th>
+      <th>GHG.em</th>
+      <th>GHG.em.pc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10793</th>
+      <td>China</td>
+      <td>2023</td>
+      <td>1.594399e+07</td>
+      <td>11.302101</td>
+    </tr>
+    <tr>
+      <th>10870</th>
+      <td>Luxembourg</td>
+      <td>2023</td>
+      <td>7.860933e+03</td>
+      <td>11.795587</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>As it turns out, they are very similar.</p>
+<hr>
+<h4 id="Check-your-calculations">Check your calculations<a class="anchor-link" href="#Check-your-calculations">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Why-should-I-check-calculations?">Why should I check calculations?<a class="anchor-link" href="#Why-should-I-check-calculations?">&#182;</a></h5><p>When you do such calculations you should always check that the results are actually plausible and you havn't done any mistake. This is especially important when you are manipulating units of measurement as we did here.</p>
+<p>Once you are confiident that the calculations are correct you can move on and forget about this calculation.</p>
+<h5 id="How-do-I-check-calculations?">How do I check calculations?<a class="anchor-link" href="#How-do-I-check-calculations?">&#182;</a></h5><p>An easy way to check the calculation we did here is to go to Google or your preferred LLM and check whether the above is about right. For instance ask what is the current GHG emission per capita in Luxembourg. It turns out that our calculation is in the correct ballpark!</p>
+<p>You can also use a calculator or a spreadsheet to check the calculation for one or two cases.</p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+
+<h1 id="Do-natural-disasters-happen-predominantly-in-poor-countries?">Do natural disasters happen predominantly in poor countries?<a class="anchor-link" href="#Do-natural-disasters-happen-predominantly-in-poor-countries?">&#182;</a></h1><p>In fact the question we will really ask is whether natural disasters happen predominantly in countries that are not responsible for large GHG emissions.</p>
+<p>Let's think what we would want to look at. In the end we will want to look at a scatter plot which has the following axes</p>
+<ol>
+<li><strong>Average GHG emissions per capita between 1970 to date</strong>. This we can get by using the data we have in <code>edgardat_long</code> and averaging across all years by country.</li>
+<li>We need a <strong>measure of whether climate change is affecting countries more or less</strong>. Some countries are, through their geographical location, more exposed to natural disasters. E.g. countries in the Caribbean will be more exposed to storms than central European countries. We therefore should calculate a change in exposure to natural disasters. It is acknowledged that the effects of climate change have been increasing over the last few decades, as global temperatures have increased. So one way we can calculate an increased exposure to natural disasters is to calculate say the growth rate of storms (or any climate related events) from the 70s (1970 to 1979) to the the last ten years of data available (2014-2023).</li>
+</ol>
+<h2 id="Avererage-GHG-emissions-per-capita">Avererage GHG emissions per capita<a class="anchor-link" href="#Avererage-GHG-emissions-per-capita">&#182;</a></h2><p>So let's calculate these.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_info</span> <span class="o">=</span> <span class="n">edgardat_long</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Country_code_A3&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">])</span>\
+                    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">avg_GHG_em_pc</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;GHG.em.pc&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">))</span>\
+                    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+
+</div>
+<p>We also change the name of the <code>Country_Code_A3</code> variable in <code>country_info</code> to <code>ISO</code> which then matches the variable name of the three letter country code we get from the <code>emdat</code> data.</p>
+<p>The following code has two errors. You will have to identify them before you can execute this line.</p>
+<div class="highlight"><pre><span></span><span class="n">country_info</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">Columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Country_code_A3&quot;</span><span class="p">:</span> <span class="n">ISO</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+
+<hr>
+<h4 id="Solution">Solution<a class="anchor-link" href="#Solution">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Solution-strategies">Solution strategies<a class="anchor-link" href="#Solution-strategies">&#182;</a></h5><p>You could compare the code to a previous time we applied the <code>rename</code> method to a dataframe and attempt to adjust that code.</p>
+<p>Sometimes it is good to run the code even if you know that it is faulty. The error messages produced may well give you important hints. The error messages you are likely to receive are</p>
+<ul>
+<li>"NameError: name 'ISO' is not defined"</li>
+<li>"TypeError: DataFrame.rename() got an unexpected keyword argument 'Columns'. Did you mean 'columns'?"</li>
+</ul>
+<p>You will only receieve one of them first.</p>
+<h5 id="Solution?">Solution?<a class="anchor-link" href="#Solution?">&#182;</a></h5><div class="highlight"><pre><span></span><span class="n">country_info</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Country_code_A3&quot;</span><span class="p">:</span> <span class="s2">&quot;ISO&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+<p>Don't forget the <code>inplace=True</code> option, otherwise the new name will not be saved in <code>country_info</code>.</p>
+<p>Check afterwards by running <code>country_info.columns</code> in the Console to confirm that the Country code variable is now named <code>ISO</code>.</p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+
+<h2 id="Growth-in-natural-disasters">Growth in natural disasters<a class="anchor-link" href="#Growth-in-natural-disasters">&#182;</a></h2><p>We basically need to calculate two measures of exposure to natural disasters (those that can potentially be linked to the effects of climate change), a measure for the 70s, the base measure, and then a recent measure.</p>
+<p>Let us look back at the information in the <code>emdat</code> database, by looking at a particular event. In particular we need to understand how events that affect multiple countries are recorded. To investigate this we will attempt to identify Hurricane Sandy (<a href="https://en.wikipedia.org/wiki/Hurricane_Sandy">Wikipedia entry to Hurricane Sandy</a>) which, in late October 2012 affected several countries in the Carribean and then the US. So let's filter by what we know.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">emdat</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;`Start Year` == 2012 &amp; `Start Month` == 10 &amp; `Disaster Subgroup` == &#39;Meteorological&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+<p>There are 14 events selected and if you look at the data you will see that in the <code>Event Name</code> variable there is actually an indication which events are related to Hurricane Sandy. So we can actually filter on that.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">emdat</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;`Event Name` == &#39;Hurricane Sandy&#39;&quot;</span><span class="p">)[[</span><span class="s1">&#39;DisNo.&#39;</span><span class="p">,</span> <span class="s1">&#39;Event Name&#39;</span><span class="p">,</span> <span class="s1">&#39;ISO&#39;</span><span class="p">,</span> <span class="s1">&#39;Country&#39;</span><span class="p">,</span> <span class="s1">&#39;Start Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Start Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Start Day&#39;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+</pre></div>
+
+</div>
+
+<pre>              DisNo.       Event Name  ISO                   Country  \
+12402  2012-0410-BHS  Hurricane Sandy  BHS                   Bahamas   
+12403  2012-0410-CUB  Hurricane Sandy  CUB                      Cuba   
+12404  2012-0410-DOM  Hurricane Sandy  DOM        Dominican Republic   
+12405  2012-0410-HTI  Hurricane Sandy  HTI                     Haiti   
+12406  2012-0410-JAM  Hurricane Sandy  JAM                   Jamaica   
+12407  2012-0410-USA  Hurricane Sandy  USA  United States of America   
+
+       Start Year  Start Month  Start Day  
+12402        2012         10.0       24.0  
+12403        2012         10.0       22.0  
+12404        2012         10.0       24.0  
+12405        2012         10.0       24.0  
+12406        2012         10.0       24.0  
+12407        2012         10.0       28.0  
+</pre>
+
+
+<p>As you can see, for each affected country we get a separate event. This will greatly facilitate our measure of exposure to climate change as we are calculating country level exposures.</p>
+<hr>
+<h4 id="Understanding-your-data">Understanding your data<a class="anchor-link" href="#Understanding-your-data">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Why-is-it-important?">Why is it important?<a class="anchor-link" href="#Why-is-it-important?">&#182;</a></h5><p>What we did here is perhaps one of the most important activities an applied economist or data scientist will ever have to do. UNDERSTAND THE DATA. This will involve looking at particular data examples. Investigate what variables are available, understand what the unit of observation is, understand the sample of data available to you, be knowledgeable about the limitations the data come with.</p>
+<h5 id="How-do-I-do-that?">How do I do that?<a class="anchor-link" href="#How-do-I-do-that?">&#182;</a></h5><p>There is no general recipe to do that. You will have to be curious and ask critical questions. Here we knew that we should be able to find a particular event (Hurricane Sandy) in the data and then we went to find it in the data. If you see how something you know is represented in the data then this can be a great path to understanding the data.</p>
+<p>On top of that looking at summary statistics and graphical representations is often a great path to improved data understanding.</p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+<p>In order to calculate exposure we begin by calculating the number of events that affected a particular country between 1970 and 1979. But we will only count the events that could potentially be explained by climate change, i.e. those in the following <code>Disaster.Subgroup</code>: Climatological, Hydrological and Meteorological.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sel_dis_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Climatological&quot;</span><span class="p">,</span> <span class="s2">&quot;Hydrological&quot;</span><span class="p">,</span> <span class="s2">&quot;Meteorological&quot;</span><span class="p">]</span>
+
+<span class="n">Country_info_dis_base</span> <span class="o">=</span> <span class="n">emdat</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;`Disaster Subgroup` in @sel_dis_types &amp; `Start Year` &gt; 1969 &amp; `Start Year` &lt; 1980&quot;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;ISO&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">base</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;DisNo.&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">))</span>\
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+
+</div>
+<p>Note, we are explicitly not claiming that any individual event here is the result of climate change. We can see that we have counts of events for 124 countries. That means that a good number of countries did not experience any disasters.</p>
+<p>You could quite rightly ask why we don't just take the disaster count in countries in 1970 and compare that to 2023. Why do we need to calculate averages?</p>
+<p>The reason is that disasters are a lumpy occurrence. There can be a particular year with many bad storms being followed by a year without. And then it matters whether 1970 was one or the other. Climate measures should always be taken over longer periods and not just a year.</p>
+<p>And in fact we could also consider aggregating regionally across countries.</p>
+<p>Now we do the same but for the most recent years (2014-2023).</p>
+<div class="highlight"><pre><span></span><span class="n">Country_info_dis_recent</span> <span class="o">=</span> <span class="n">emdat</span><span class="o">.</span><span class="n">XXXX</span><span class="p">(</span><span class="s2">&quot;`Disaster Subgroup` in @sel_dis_types &amp; `Start Year` &gt; XXXX &amp; `XXXX` &lt; XXXX&quot;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ISO&#39;</span><span class="p">,</span><span class="s1">&#39;Region&#39;</span><span class="p">])</span>\
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">recent</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;DisNo.&#39;</span><span class="p">,</span> <span class="s1">&#39;XXXX&#39;</span><span class="p">))</span>\
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+
+
+<p>You will know that you got it right if <code>Country_info_dis_recent</code> has 201 observations and 3 variables and the first few rows look like this.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Country_info_dis_recent</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ISO</th>
+      <th>Region</th>
+      <th>base</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AFG</td>
+      <td>Asia</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AGO</td>
+      <td>Africa</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AIA</td>
+      <td>Americas</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ALB</td>
+      <td>Europe</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ARE</td>
+      <td>Asia</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>Note, that here we also added <code>Region</code> as a grouping variable. This isn't really necessary, but it will add <code>Region</code> to <code>Country.info.dis.recent</code> and we will make good use of that variable as we plot the data.</p>
+<p>The first indication that the number of disasters has increased is that we are now counting events for more than 200 countries, however, do remember that a recency bias is one of the biases potentially contained in the database. Another bias may be that in general the reporting in more advanced countries is better. Being conscious of that point we will still proceed by merging the two data objects we just created. We will merge these variables into the <code>country_info</code> database in which we already saved the <code>avg.GHG.em.pc</code> variable.</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_info</span> <span class="o">=</span> <span class="n">country_info</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">Country_info_dis_base</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;ISO&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
 <hr>
-<h4 id="What-does-this-line-of-code-actually-do?">What does this line of code actually do?<a class="anchor-link" href="#What-does-this-line-of-code-actually-do?">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
-<h5 id="Reading-Code">Reading Code<a class="anchor-link" href="#Reading-Code">&#182;</a></h5><p>text 0</p>
-<h5 id="What-are-methods?">What are methods?<a class="anchor-link" href="#What-are-methods?">&#182;</a></h5><p>text 1</p>
+<h4 id="What-does-this-code-actually-do?">What does this code actually do?<a class="anchor-link" href="#What-does-this-code-actually-do?">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="merge-architecture">merge architecture<a class="anchor-link" href="#merge-architecture">&#182;</a></h5><p>The way the <code>merge</code> function is used here is as a method. We take one dataframe (<code>country_info</code>) and apply the <code>merge</code> method. That means that we are merging another dataframe (here `Country_info_dis_base) into that datframe.</p>
+<h5 id="merge-options">merge options<a class="anchor-link" href="#merge-options">&#182;</a></h5><p>The <code>merge</code> function does require inputs, at the very least the two dataframes that require merging (here only one in addition to the one to which the method is applied). The <code>on</code> option indicates which are variable(s) that are being matched from both dataframes. Here that is the <code>ISO</code> variable, meaning we match on countries. You could actually leave this at its default (by not listing the <code>on</code> option in the call of the method) in which case python woudl find the variables that have the same name and matchon that. But to make the code more readable it is best to add this option.</p>
+<p>The second important input option is the <code>how</code> option. Here we chose <code>how = 'left'</code>. What this does is to make sure that the result of the merge action retains all the rows which were in <code>country_info</code>. If it finds a matching row in <code>Country_info_dis_base</code> it will add the respective info of the new variables. Check out the other possible settings for the <code>how</code> option are.</p>
+<h5 id="How-to-find-details?">How to find details?<a class="anchor-link" href="#How-to-find-details?">&#182;</a></h5><p>You should start by looking at the function documentation which you can access by searching for "pandas merge". Look at the options (and their default values) and also look at the examples at the bottom of the documentation to see what effect the different options have. Of course you could also go to your favourite LLM and ask it to explain the different options.</p>
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+<p>And now we add the <code>recent</code> variable to <code>country.info</code> dataframe. Use exactly the same settings as in the merge we just performed.</p>
+<div class="highlight"><pre><span></span><span class="n">country_info</span> <span class="o">=</span> <span class="n">country_info</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">XXXX</span><span class="p">)</span>
+</pre></div>
+
+
+<hr>
+<h4 id="Solution">Solution<a class="anchor-link" href="#Solution">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Try-yourself">Try yourself<a class="anchor-link" href="#Try-yourself">&#182;</a></h5><p>As always you should first try this yourself. Follow the previous example. Copy and paste the code and try and adjust it.</p>
+<h5 id="Solution">Solution<a class="anchor-link" href="#Solution">&#182;</a></h5><div class="highlight"><pre><span></span><span class="n">country_info</span> <span class="o">=</span> <span class="n">country_info</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">Country_info_dis_recent</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;ISO&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+</pre></div>
+<h5 id="Check-your-result">Check your result<a class="anchor-link" href="#Check-your-result">&#182;</a></h5><p>You got the result right if the first few rows look like this:</p>
+
+
+
+
+
+
+
+<div class="pj-input pj-fold fold-show">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_info</span><span class="o">.</span><span class="n">head</span>
+</pre></div>
+
+</div>
+
+
+
+<pre>&lt;bound method NDFrame.head of      ISO                  Name  avg_GHG_em_pc  base   Region  recent
+0    ABW                 Aruba       3.355769   NaN      NaN     NaN
+1    AFG           Afghanistan       0.938111   5.0     Asia    49.0
+2    AGO                Angola       3.096369   NaN   Africa    20.0
+3    ALB               Albania       3.212663   NaN   Europe     9.0
+4    ARE  United Arab Emirates      47.590699   NaN     Asia     1.0
+..   ...                   ...            ...   ...      ...     ...
+198  WSM                 Samoa       1.930623   NaN  Oceania     2.0
+199  YEM                 Yemen       1.245250   NaN     Asia    21.0
+200  ZAF          South Africa      10.341670   3.0   Africa    36.0
+201  ZMB                Zambia       1.877387   1.0   Africa    10.0
+202  ZWE              Zimbabwe       2.737963   1.0   Africa    13.0
+
+[203 rows x 6 columns]&gt;</pre>
+
+
+
+<h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
+<hr>
+
+<hr>
+<h4 id="Solution">Solution<a class="anchor-link" href="#Solution">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Solution-strategies">Solution strategies<a class="anchor-link" href="#Solution-strategies">&#182;</a></h5><p>text 0</p>
+<h5 id="Solution?">Solution?<a class="anchor-link" href="#Solution?">&#182;</a></h5><p>text 1</p>
 <h5 id="The-rename-method-looks-complicated">The rename method looks complicated<a class="anchor-link" href="#The-rename-method-looks-complicated">&#182;</a></h5><p>text 2</p>
 <h5 id="What-methods-are-there-for-dataframes?">What methods are there for dataframes?<a class="anchor-link" href="#What-methods-are-there-for-dataframes?">&#182;</a></h5><p>text 3</p>
 <h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
