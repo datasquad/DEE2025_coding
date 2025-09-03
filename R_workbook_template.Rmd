@@ -1,0 +1,154 @@
+---
+title: "R Workbook Template"
+output: webexercises::webexercises_default
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning = FALSE)
+library(webexercises)
+```
+
+# Aim
+
+This is a template you can use to create walkthroughs in R. The tool we use here is an Rmarkdown file in which can mix text, code and code output. In this template we demonstrate how to incorporate the following items that are not necessarily standard:
+
+* how to include hidden text or code
+* how to build in simple multiple-choice questions
+* how to incorporate "FILL-THE-GAP" exercises
+* how to hide code
+
+Much of the functionality comes from the [webexercises](https://psyteachr.github.io/webexercises/articles/webexercises.html) package. So before you work on these you will have to install this package in the usual way (say `install.packages("webexercises")` in the Console).
+
+The output will be a html file which you can share with students. Students will not need to have this package installed.
+
+The way how you create the html file is to export or knot it. This document will show at the end how to create these html files. You can also create pdf files, but then you are loosing any interactivity.
+
+# Standard Rmarkdown elements that may be useful
+
+The following functionality is standard Rmarkdown notebook functionality (also refer to the [guidance](https://rmarkdown.rstudio.com/))
+
+## Code blocks
+
+The main feature of Rmarkdown notebooks is that you can interlace text/markdown blocks like this one, with code blocks, like the following:
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+```
+
+In the markdown file you start a code block by "```{r}" and you end it with "```" each of them in their own lines.
+
+A great feature of Rmarkdown files is that you have a lot of control over how code blocks should behave.
+
+### Code block options: echo
+
+This option controls whether the code block should be seen in the resulting html. By default `echo = TRUE`, if you don't want the code to be seen you set `echo = FALSE`. You would start a code block by "```{r, echo = FALSE}"
+
+### Code block options: eval
+
+This controls whether the code in a block should actually be executed. The default is `eval = TRUE`. If you wish to not evaluate a code then you need to begin the code block by "```{r, eval = FALSE}".
+
+### Code block options: message
+
+This controls whether any messages that may be normally printed into the console are displayed in the html file. The default is `message = TRUE`. If you wish to not show any messages then you need to begin the code block by "```{r, message = FALSE}".
+
+### Code block options: warning
+
+This controls whether any warnings that may be normally printed into the console are displayed in the html file. The default is `warning = TRUE`. If you wish to not show any messages then you need to begin the code block by "```{r, warning = FALSE}".
+
+### Code block options: results
+
+This controls whether any output produced by the R code is shown or not. The default is `results = asis`. If you wish to not show any code produced output then you need to begin the code block by "```{r, results = hide}".
+
+### Code block options: include
+
+If you wish nothing to be shown off the code chunk, but you wish it to be evaluated, then you may wish to set the `include` option to `FALSE`.
+
+### Code block options: defaults
+
+At the beginning of your markdown file you should have a code chunck that sets the defaults for your file. This is what we typically set
+
+![Image with settings for data download](images/R_setupchunck.png){width="50%"}
+
+You can see that for this particular chunck we set `include = FALSE` as that chunck itself should not be seen. We also include the `library(webexercise)` in here as a learner need not see this library being loaded. It is only needed to produce the functionality of the worksheet but not for any work students will be doing.
+
+## Weblinks
+
+This is an example of a weblink: [guidance](https://rmarkdown.rstudio.com/).
+
+
+## Image
+
+You can include images. Make sure that you have the correct path to the image (relative to the directory in which your notebook is stored). It can be useful to create a folder for images.
+
+![This is the alternative text](images/key.png)
+
+## Code embedding
+
+You can present code inside the markdown text. You do that when you do not wish to have the code executed. Of course here you can also achieve that by using a code chunck and setting `eval = FALSE`.
+
+``` r
+a <- 3
+print("This code will not be executed")
+```
+
+## LaTeX
+
+You can use LaTeX in you notebooks. If you wish inline mathematics you do that by encaing the maths in dollar signs such as this: $\hat{y} = \hat{\alpha} + \hat{\beta} x$.
+
+If you wish to display a line of mathematics you do that with the begin/end equation command as you would in a tex document:
+
+\begin{equation}
+\hat{y} = \hat{\alpha} + \hat{\beta} x
+\end{equation}
+
+## Embedding a YouTube video
+
+You can embed a video into your notebook. The way that I could make work is the following bit of code (you could hide the code with the above technique). It requires you to import something from the `IPython.display` package. 
+
+Here 'fPRcu9g7ZTQ' is the unique identifier for the particular video, and you can find it from any YouTube's video. The following video has the following url: "https://youtu.be/fPRcu9g7ZTQ" and the last sequence of letters and numbers is the unique code for the video.
+
+<iframe src="https://www.youtube.com/embed/fPRcu9g7ZTQ" data-external= "1" > </iframe>
+
+# Non-standard workbook elements
+
+You need to look at the "Rmd" version of this workbook to see how these are built. 
+
+## Multiple choice questions
+
+The webexercise package allows you to include multiple choice questions into a workbook. These are built straight into the markdown text of your workbook.
+
+Which of the following packages allows you to built multiple choice questions into Rmarkdown worksheets. There are two ways to do that. One where the answer options are presented in a drop-down box:
+
+`r mcq(c("tidyr", "rmarkdown", answer = "webexercises", "tidyverse"))`
+
+When you have longer answer options then you may wish to present answers in the following way.
+
+What is the best interpretation of a p-value?
+
+```{r, echo = FALSE}
+opts_p <- c(
+   "the probability that the null hypothesis is true",
+   answer = "the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true",
+   "the probability of making an error in your conclusion"
+)
+```
+
+`r longmcq(opts_p)`
+
+## Fill-in answer questions
+
+You can also ask readers to respond to a question with either a numerical or text input.
+
+What is the function in R with which you can install a package that is not yet installed on your computer?
+
+`r fitb("install.packages")`
+
+You can also allow for multiple correct answers, ignore whether letters are upper or lower case and ignore spaces. For details on how to do that refer to the [webexercises support pages](https://psyteachr.github.io/webexercises/articles/webexercises.html#fill-in-the-blanks).
+
+## True or False questions
+
+The last question type that is implemented in the webexercises package is True or False questions.
+
+Building questions into rmarkdown is easy when using webexercises. `r torf(TRUE)`
