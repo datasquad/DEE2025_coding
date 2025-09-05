@@ -23,6 +23,8 @@ The output will be a html file which you can share with students. Students will 
 
 The way how you create the html file is to export or knot it. This document will show at the end how to create these html files. You can also create pdf files, but then you are loosing any interactivity.
 
+The Rmd version of this is available from here: [R_workbook_template.Rmd](https://raw.githubusercontent.com/datasquad/DEE2025_coding/refs/heads/master/R_workbook_template.Rmd).
+
 # Standard Rmarkdown elements that may be useful
 
 The following functionality is standard Rmarkdown notebook functionality (also refer to the [guidance](https://rmarkdown.rstudio.com/))
@@ -67,11 +69,11 @@ If you wish nothing to be shown off the code chunk, but you wish it to be evalua
 
 ### Code block options: defaults
 
-At the beginning of your markdown file you should have a code chunck that sets the defaults for your file. This is what we typically set
+At the beginning of your markdown file you should have a code chunk that sets the defaults for your file. This is what we typically set
 
 ![Image with settings for data download](images/R_setupchunck.png){width="50%"}
 
-You can see that for this particular chunck we set `include = FALSE` as that chunck itself should not be seen. We also include the `library(webexercise)` in here as a learner need not see this library being loaded. It is only needed to produce the functionality of the worksheet but not for any work students will be doing.
+You can see that for this particular chunk we set `include = FALSE` as that chunk itself should not be seen. We also include the `library(webexercise)` in here as a learner need not see this library being loaded. It is only needed to produce the functionality of the worksheet but not for any work students will be doing.
 
 ## Weblinks
 
@@ -86,7 +88,7 @@ You can include images. Make sure that you have the correct path to the image (r
 
 ## Code embedding
 
-You can present code inside the markdown text. You do that when you do not wish to have the code executed. Of course here you can also achieve that by using a code chunck and setting `eval = FALSE`.
+You can present code inside the markdown text. You do that when you do not wish to have the code executed. Of course here you can also achieve that by using a code chunk and setting `eval = FALSE`.
 
 ``` r
 a <- 3
@@ -113,7 +115,7 @@ Here 'fPRcu9g7ZTQ' is the unique identifier for the particular video, and you ca
 
 # Non-standard workbook elements
 
-You need to look at the "Rmd" version of this workbook to see how these are built. 
+You need to look at the "Rmd" version of this workbook to see how these are built. You will find this here [R_workbook_template.Rmd](https://raw.githubusercontent.com/datasquad/DEE2025_coding/refs/heads/master/R_workbook_template.Rmd). 
 
 ## Multiple choice questions
 
@@ -152,3 +154,124 @@ You can also allow for multiple correct answers, ignore whether letters are uppe
 The last question type that is implemented in the webexercises package is True or False questions.
 
 Building questions into rmarkdown is easy when using webexercises. `r torf(TRUE)`
+
+## Hidden boxes
+
+Another incredibly useful element introduced by webexercises are hidden boxes. There are different ways to implement them but we find this way the most strightforward one.
+
+`r hide("Click to see why")`
+
+The user can click on the box which will make this text appear. Inside the box you can use all the other elements described before, for instance code chunks
+
+```{r, echo = FALSE}
+hist(rnorm(1000))
+```
+
+`r unhide()`
+
+
+# Useful elements for a learner facing workbook
+
+## Showing error messages
+
+Showing error messages is not necessarily straightforward as you cannot built faulty code into your notebook. However, you may want to expose your students to error messages and how to deal with these.
+
+You may have to write faulty code and execute it while you are editing the file, take a screenshot of the error, save that as a "png" file and then display the image like it is done below.You could for instance ask students to run some faulty code in order to produce an error message. When you present the code in a code chunk you should set `eval = FALSE`.
+
+```{r, eval = FALSE}
+b <- a - sqrt(56)
+```
+
+You should get the following error message.
+
+![Image with error message](images/R_error2.png)
+
+Then you can give students some guidance on how to use the information in the error to fix the problem.You could do that with advice in a hidden box or perhaps multiple choice giving students different options of action like here:
+
+What is the correct action to fix this issue?
+
+```{r, echo = FALSE}
+opts_p2 <- c(
+   "the function sqrt has been used incorrectly",
+   answer = "there is no object a and it needs to be defined and available in the environment prior to use",
+   "R is case sensitive and the code should refer to object A",
+   "We are using an incorrect assignment operator and we should use b = ..."
+)
+```
+
+`r longmcq(opts_p2)`
+
+
+## Explaining code, helping students read code
+
+As increasingly we will use support tools (Google search, ChatGPT or other LLMs) to write code for us, the skill of actually reading and understanding code will be increasingly important. There are a number of ways how you can support skill development through how you present material in code walkthroughs.
+
+Here is one example.You could start by presenting some code.
+
+```{r}
+emdat <- read_excel("natural.xlsx", guess_max = 15000) 
+names(emdat) <- make.names(names(emdat))
+```
+
+`r hide("What does this line of code do")`
+
+Here you could explain what the code actually does. Here in particular why it is useful here to set the `guess_max` option to a large number. Also you would want to explain why it is useful to apply the `make.names` function to the variable names of `emdat`. Mainly this is done to remove spaces from variable names which makes working in R significantly more straightforward.
+
+`r hide("How can I find this out myself?")`
+
+Here you could provide the reader with tips on how to figure stuff like this out themselves. You could show them how to read the help function, how to search sensibly in Google (use search term "R read_excel guess_max") or how to communicate with ChatGPT ("I am working in R and am using the read_excel function to import an excel datasheet. What are reasons to set the guess_max option to a higher than default value?")
+
+As you can note here you can nest these boxes and you could use this to give readers ever more detailed advice.
+
+`r unhide()`
+`r unhide()`
+
+## Complete the blank exercises 
+
+A very useful way to encourage learners to engage learners in the typical activities of a coder is to ask them to complete pieces of incomplete code. You can do that such that learners can eventually see the correct code or in a way that does not reveal the correct code, but does give learners the opportunity to verify that they have done the right thing.
+
+### No solution given
+
+Here we present some incomplete code for students. This is easiest done by using a code chunk but setting `eval = FALSE`. Then you can also add the correct code in a different code chunk but here you set `echo = FALSE`. This means that the correct code is run but not shown (and you will only be able to see that correct code in the "Rmd" version of this file but not in the rendered "html" version). In the correct code you can produce a piece of output that can help the learner evaluate whether they correctly completed the code.
+
+In this example you could ask students to produce some summary statistics for the `No..Homeless` variable in the `emdat` dataframe.
+
+```{r, eval = FALSE}
+XXXX(emdat$XXXX)
+```
+
+```{r, echo = FALSE}
+summary(emdat$No..Homeless)
+```
+
+On this occasion the code you asked learners to complete will itself produce the output. But you may need to consider producing an extra line with output to reveal information that allows the learner to verify that they have done the right thing.
+
+### Solution provided
+
+If you do wish to give the correct code you could hide it in a box. As above you could present the problem/task. This could be followed by the following.
+
+`r hide("How can I find this out myself?")`
+
+There are different ways of obtaining summary statistics in R, but the most straightforward one is to use the `summary` function. You can use it as follows:
+
+```{r, eval = FALSE}
+summary(emdat$No..Homeless)
+```
+
+If you did present the correct result beforehand, as we have done here you will want to set `eval = FALSE` in this code chunk, otherwise you will see the statistics twice.
+
+`r unhide()`
+
+## Advice on how to search for help
+
+Searching for solutions to problems is a super important skill for students to learn. You can give learners a problem and then use nested hidden boxes to give students hints and steps towards a solution.
+
+In nested hidden boxes you could give increasingly detailed advice on how to use either google search of an LLM to get the right support for a particular problem. You could give advice on the right search terms and on how to prompt a LLM. At the end you could even link an interaction with, say, ChatGPT, to illustrate how to ask questions and how to use results. This can be useful to help learners how too formulate a small problem to an LLM on which it can help but then also understand that usually the solution needs adjusting (e.g. this [interaction with ChatGPT](https://chatgpt.com/share/689ba982-0ce0-8010-958a-7dd8e5f5c004) to see how a well formulated query can deliver the solution). 
+
+# Rendering/Exporting the workbook
+
+Once you have drafted your workbook as a "Rmd" file you will have to render or knit it to produce a "html" file which you can share with students. This file can then be shared with and viewed by students (also offline).
+
+The process of knitting the "Rmd" file into a "html" file is very straightforward in RStudio. First you need to ensure that you have saved your latest edits (CTRL + S in Windows). Then you press the knit button as illustrated below. This will place the resulting "html" file into the same directory in which you saved your "rmd" file.
+
+![Image with RStudio knitting button](images/R_knit.png){width="50%"}

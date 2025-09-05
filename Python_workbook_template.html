@@ -13,7 +13,7 @@
     
     <meta property="author" content="Ralf Becker and Yichen Zhu" />
     
-    <meta property="date" content="2025-09-02 21:03:38" />
+    <meta property="date" content="2025-09-05 06:12:23" />
     
   
 
@@ -460,7 +460,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
           <h4>Ralf Becker and Yichen Zhu</h4>
           
           
-          <h4>2025-09-02 21:03:38</h4>
+          <h4>2025-09-05 06:12:23</h4>
           
         </header>
         
@@ -486,9 +486,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
           
 <h1 id="Aim">Aim<a class="anchor-link" href="#Aim">&#182;</a></h1><p>This is a template you can use to create walkthroughs in Python. In any standard jupyter notebook you can mix text, code and code output. In this template we demonstrate how to incorporate the following items that are not necessarily standard</p>
 <ul>
-<li>tabs which can be used to step-wise reveal instructions or solutions</li>
+<li>how to include tabs which can be used to step-wise reveal instructions or solutions</li>
 <li>how to build in simple multiple-choice questions</li>
-<li>to incorporate "FILL-THE-GAP" ecercises</li>
+<li>how to incorporate "FILL-THE-GAP" ecercises</li>
 <li>how to hide code</li>
 </ul>
 <p>Much of the functionality comes from the <a href="https://pretty-jupyter.readthedocs.io/en/latest/">pretty jupyter</a> package. So before you work on these you will have to install this library in the usual way (say <code>pip install pretty-jupyter</code> in the Terminal).</p>
@@ -641,7 +641,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
 <hr>
 
-<h2 id="Complete-the-blank-exercises">Complete the blank exercises<a class="anchor-link" href="#Complete-the-blank-exercises">&#182;</a></h2><h3 id="no-solution-given">no solution given<a class="anchor-link" href="#no-solution-given">&#182;</a></h3><p>Here we present some incomplete code for students. We do that with code embedding as described above.</p>
+<h2 id="Complete-the-blank-exercises">Complete the blank exercises<a class="anchor-link" href="#Complete-the-blank-exercises">&#182;</a></h2><p>A very useful way to encourage learners to engage learners in the typical activities of a coder is to ask them to complete pieces of incomplete code. You can do that such that learners can eventually see the correct code or in a way that does not reveal the correct code, but does give learners the opportunity to verify that they have done the right thing.</p>
+<h3 id="no-solution-given">no solution given<a class="anchor-link" href="#no-solution-given">&#182;</a></h3><p>Here we present some incomplete code for students. We do that with code embedding as described above.</p>
 <p>Complete the following code. You want to provide summary statistics for the 'No. Homeless' variable in <code>emdat</code>.</p>
 <div class="highlight"><pre><span></span><span class="n">emdat</span><span class="p">[</span><span class="s1">&#39;XXXX&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">XXXX</span><span class="p">()</span>
 </pre></div>
@@ -686,17 +687,33 @@ Name: No. Homeless, dtype: float64</pre>
 <hr>
 
 <h2 id="Advice-on-how-to-search-for-help">Advice on how to search for help<a class="anchor-link" href="#Advice-on-how-to-search-for-help">&#182;</a></h2><p>Searching for solutions to problems is a super important skill for students to learn. You can use the tabs to give students a problem, could be an incomplete code or a faulty code, and then use tabs as in the previous problem to give students hints and steps towards a solution.</p>
+<p>Using successive tabs you could give increasingly detailed advice on how to use either google search or an LLM to get the right support for a particular problem. You could give advice on the right search terms and on how to prompt a LLM. At the end you could even link an interaction with, say, ChatGPT, to illustrate how to ask questions and how to use results. This can be useful to help learners how too formulate a small problem to an LLM on which it can help but then also understand that usually the solution needs adjusting (e.g. this <a href="https://chatgpt.com/share/68b4a0ea-f3f4-8010-84c7-5f22e8542ce1">interaction with ChatGPT</a> to see how a well formulated query can deliver the solution to a query).</p>
 <h2 id="Multiple-choice-questions">Multiple choice questions<a class="anchor-link" href="#Multiple-choice-questions">&#182;</a></h2><p>In Jupyter notebooks there is no straightforward way to build visually and functionally appealing multiple choice questions. However, you can use the tabs described earlier for a simple implementation of multiple choice questions.</p>
-
-<h1 id="Rendering/Exporting-the-workbook">Rendering/Exporting the workbook<a class="anchor-link" href="#Rendering/Exporting-the-workbook">&#182;</a></h1>
 <hr>
-<h4 id="Solution">Solution<a class="anchor-link" href="#Solution">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
-<h5 id="Solution-strategies">Solution strategies<a class="anchor-link" href="#Solution-strategies">&#182;</a></h5><p>text 0</p>
-<h5 id="Solution?">Solution?<a class="anchor-link" href="#Solution?">&#182;</a></h5><p>text 1</p>
-<h5 id="The-rename-method-looks-complicated">The rename method looks complicated<a class="anchor-link" href="#The-rename-method-looks-complicated">&#182;</a></h5><p>text 2</p>
-<h5 id="What-methods-are-there-for-dataframes?">What methods are there for dataframes?<a class="anchor-link" href="#What-methods-are-there-for-dataframes?">&#182;</a></h5><p>text 3</p>
+<h4 id="Revision">Revision<a class="anchor-link" href="#Revision">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.tabset</span></p>
+<h5 id="Question">Question<a class="anchor-link" href="#Question">&#182;</a></h5><p>Which of the following is correct?</p>
+<ul>
+<li>Working in Python is basically the same as working in Excel.</li>
+<li>In order to download and install Python you will have to pay an annual fee of £79.99.</li>
+<li>Lots of the functionality in Python comes through extra packages/libraries.</li>
+<li>The reason we prefer using VS Code to work in Python are the cool colour schemes available.</li>
+<li>When learning in Python I should expect to be proficient after about 1-2 hours of practice.</li>
+</ul>
+<h5 id="Solution?">Solution?<a class="anchor-link" href="#Solution?">&#182;</a></h5><p>Correct answer:</p>
+<p><strong> Lots of the functionality in Python comes through extra packages/libraries.</strong></p>
 <h4 id="-"> <a class="anchor-link" href="#-">&#182;</a></h4><p><span class='pj-token' style='display: none;'>.unlisted|O_O|.unnumbered</span></p>
 <hr>
+
+<h1 id="Rendering/Exporting-the-workbook">Rendering/Exporting the workbook<a class="anchor-link" href="#Rendering/Exporting-the-workbook">&#182;</a></h1><p>Once you have drafted your workbook you will have to render it to produce a html file which you can share with students. This file can then be shared with and viewed by students (also offline).</p>
+<p>As we are using non-standard jupyter notebook functionality you got to use a special process to create this. After having saved your workbook you should go to the Terminal and use the following command to convert the "ipynb" file to a "html" file.</p>
+<p>Here is the command that was used to render this file.</p>
+<div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">nbconvert</span> <span class="o">--</span><span class="n">to</span> <span class="n">html</span> <span class="o">--</span><span class="n">template</span> <span class="n">pj</span>  <span class="o">--</span><span class="n">TagRemovePreprocessor</span><span class="o">.</span><span class="n">enabled</span><span class="o">=</span><span class="kc">True</span>   <span class="o">--</span><span class="n">TagRemovePreprocessor</span><span class="o">.</span><span class="n">remove_input_tags</span> <span class="n">hide</span><span class="o">-</span><span class="nb">input</span>   <span class="n">python_workbook_template</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+<p>It is not really important to understand everything. If you look in the <a href="https://pretty-jupyter.readthedocs.io/en/latest/">Pretty Jupyter</a> documentation you will find the following rendering command:</p>
+<div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">nbconvert</span> <span class="o">--</span><span class="n">to</span> <span class="n">html</span> <span class="o">--</span><span class="n">template</span> <span class="n">pj</span> <span class="n">python_workbook_template</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+<p>That will work if you do not use any hidden code block functionality. But if you wish to use hidden code blocks you will have to use the former longer call. The only thing you will have to change is the name of the "ipynb" file name.</p>
+<p>After pressing ENTER you should find a html version of your file in your folder. In our case that is "python_workbook_template.html".</p>
 
           
         </div>
