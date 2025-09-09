@@ -1,5 +1,8 @@
 # DEE2025_coding - Programming resources that provide real-life challenges
 
+[Yichen Zhu](https://www.linkedin.com/in/yichen-zhu-0a080a172/?originalSubdomain=uk) (Aston University)
+[Ralf Becker](https://datasquad.github.io/ralffbecker/index.html) (The University of Manchester)
+
 This repository supports the Coding for Economists workshop at [DEE 2025](https://economicsnetwork.ac.uk/dee2025/). 
 
 On this Github repository you can find the following resources:
