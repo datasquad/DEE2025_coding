@@ -7,17 +7,17 @@ This repository supports the Coding for Economists workshop at [DEE 2025](https:
 
 On this Github repository you can find the following resources:
 
-** Coding in R **
+## Coding in R 
 
 * [R_workbook_template.Rmd](https://github.com/datasquad/DEE2025_coding/blob/master/R_workbook_template.Rmd) and [R_workbook_template.html](https://datasquad.github.io/DEE2025_coding/R_workbook_template.html). A template workbook that contains short examples of how to use the rmarkdown environment to present coding challenges to learners.
 * [DataWalkThorugh_DEE2025.Rmd](https://github.com/datasquad/DEE2025_coding/blob/master/DataWalkThrough_DEE2025.Rmd) and [DataWalkThorugh_DEE2025.html](https://datasquad.github.io/DEE2025_coding/DataWalkThrough_DEE2025.html). A fully worked example of an introductory class for Coding in R as an illustration of how to use interactive elements in a workbook. 
 
-** Coding in Python **
+## Coding in Python 
 
 * [Python_workbook_template.ipynb](https://github.com/datasquad/DEE2025_coding/blob/master/python_workbook_template.ipynb) and [Python_workbook_template.html](https://datasquad.github.io/DEE2025_coding/Python_workbook_template.html). A template workbook that contains short examples of how to use the jupyter notebook environment to present coding challenges to learners.
-* [DataWalkThorugh_DEE2025_pypj.ipynb](https://github.com/datasquad/DEE2025_coding/blob/master/DataWalkThrough_DEE2025_pypj.ipynb) and [DataWalkThorugh_DEE2025_pypj.html](https://datasquad.github.io/DEE2025_coding/DataWalkThrough_DEE2025_pypj.html). A fully worked example of an introductory class for Coding in R as an illustration of how to use interactive elements in a workbook.
+* [DataWalkThorugh_DEE2025_pypj.ipynb](https://github.com/datasquad/DEE2025_coding/blob/master/DataWalkThrough_DEE2025_pypj.ipynb) and [DataWalkThorugh_DEE2025_pypj.html](https://datasquad.github.io/DEE2025_coding/DataWalkThrough_DEE2025_pypj.html). A fully worked example of an introductory class for Coding in Python as an illustration of how to use interactive elements in a workbook.
 
-** Data files **
+## Data files 
 
 The workthroughs require a number of datafiles, these are:
 
