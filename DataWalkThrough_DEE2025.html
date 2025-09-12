@@ -9,6 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Ralf Becker (Manchester), Yichen Zhu (Aston)" />
 
 
 <title>Climate Change Data - An Introduction to Working in R</title>
@@ -455,6 +456,7 @@ display: none;
 
 <h1 class="title toc-ignore">Climate Change Data - An Introduction to
 Working in R</h1>
+<h4 class="author">Ralf Becker (Manchester), Yichen Zhu (Aston)</h4>
 
 </div>
 
@@ -747,16 +749,16 @@ then can be used in R. Once you executed this line you should see
 <code>emdat</code> in the environment tab.</p>
 <p>What does the second input (<code>guess_max = 15000</code>) actually
 do? (More detail on that later)</p>
-<div id="radio_NMQTJODBXT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NMQTJODBXT" value></input>
+<div id="radio_CTRMFHUJOE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CTRMFHUJOE" value></input>
 <span>Sets the maximum number of milliseconds R should take to guess the
 variable
-types</span></label><label><input type="radio" autocomplete="off" name="radio_NMQTJODBXT" value></input>
+types</span></label><label><input type="radio" autocomplete="off" name="radio_CTRMFHUJOE" value></input>
 <span>Sets the maximum number of rows to be
-imported</span></label><label><input type="radio" autocomplete="off" name="radio_NMQTJODBXT" value></input>
+imported</span></label><label><input type="radio" autocomplete="off" name="radio_CTRMFHUJOE" value></input>
 <span>Determines that missing data should be replaced with random
 numbers between 1 and
-15000</span></label><label><input type="radio" autocomplete="off" name="radio_NMQTJODBXT" value="answer"></input>
+15000</span></label><label><input type="radio" autocomplete="off" name="radio_CTRMFHUJOE" value="answer"></input>
 <span>Sets the maximum number of data rows to use for guessing column
 types.</span></label>
 </div>
@@ -768,7 +770,7 @@ function should give you enough information to answer the question.</p>
 <input class="webex-solveme nospaces" size="2" data-answer="[&quot;46&quot;]"></input>
 variables (or columns).</p>
 <p>If you click on the little spreadsheet symbol in the
-<code>accdata</code> line in the environment you can actually see the
+<code>emdat</code> line in the environment you can actually see the
 spreadsheet. It should look a little like this</p>
 <pre><code>## # A tibble: 6 × 46
 ##   DisNo.      Historic `Classification Key` `Disaster Group` `Disaster Subgroup`
@@ -1231,18 +1233,17 @@ an increasing number of natural disasters in the database.</p>
               summarise(n = n())</code></pre>
 <p>Have a look at <code>table.3</code> to understand the structure of
 that object.</p>
-<div id="radio_SJNORSQAXT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SJNORSQAXT" value="answer"></input>
+<div id="radio_LVZFIGIVAF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LVZFIGIVAF" value="answer"></input>
 <span>each Disaster.Type-Year has its own
-row</span></label><label><input type="radio" autocomplete="off" name="radio_SJNORSQAXT" value></input>
-<span>each Country-Disaster.Type-Year has its own
-row</span></label><label><input type="radio" autocomplete="off" name="radio_SJNORSQAXT" value></input>
-<span>each Country-Disaster.Type has its own row, Years are in
-columns</span></label><label><input type="radio" autocomplete="off" name="radio_SJNORSQAXT" value></input>
-<span>each Disaster.Type has its own row, Years are in
-columns</span></label><label><input type="radio" autocomplete="off" name="radio_SJNORSQAXT" value></input>
+row</span></label><label><input type="radio" autocomplete="off" name="radio_LVZFIGIVAF" value></input>
 <span>each Country-Years has its own row, Disaster.Types are in
-columns</span></label>
+columns</span></label><label><input type="radio" autocomplete="off" name="radio_LVZFIGIVAF" value></input>
+<span>each Disaster.Type has its own row, Years are in
+columns</span></label><label><input type="radio" autocomplete="off" name="radio_LVZFIGIVAF" value></input>
+<span>each Country-Disaster.Type has its own row, Years are in
+columns</span></label><label><input type="radio" autocomplete="off" name="radio_LVZFIGIVAF" value></input>
+<span>each Country-Disaster.Type-Year has its own row</span></label>
 </div>
 <p>The following code produces a line graph.</p>
 <pre class="r"><code>plot.ts &lt;- ggplot(table.3, aes(y=n, x=Start.Year, colour = Disaster.Type)) +

@@ -1,5 +1,6 @@
 ---
 title: "R Workbook Template"
+author: "Ralf Becker (Manchester), Yichen Zhu (Aston)"
 output: webexercises::webexercises_default
 ---
 

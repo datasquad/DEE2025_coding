@@ -1,5 +1,6 @@
 ---
 title: "Climate Change Data - An Introduction to Working in R"
+author: "Ralf Becker (Manchester), Yichen Zhu (Aston)"
 output: webexercises::webexercises_default
 ---
 
