@@ -127,13 +127,15 @@ Which of the following packages allows you to built multiple choice questions in
 
 When you have longer answer options then you may wish to present answers in the following way.
 
-What is the best interpretation of a p-value?
+What is the formula that translates temperatures in Celsius to temperatures in Fahrenheit?
 
 ```{r, echo = FALSE}
 opts_p <- c(
-   "the probability that the null hypothesis is true",
-   answer = "the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true",
-   "the probability of making an error in your conclusion"
+   "degree Fahrenheit temperatures cannot be translated to degree Celsius",
+   answer = "dF = 1.8 * dC + 32",
+   "dF = 1.6 * dC + 32",
+   "dC = 1.8 * dF + 32",
+   "dC = 1.6 * dF + 32"
 )
 ```
 

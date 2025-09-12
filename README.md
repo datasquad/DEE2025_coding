@@ -7,6 +7,14 @@ This repository supports the Coding for Economists workshop at [DEE 2025](https:
 
 On this Github repository you can find the following resources:
 
+## The presentation
+
+The presentation for the workshop is available from [here](https://github.com/datasquad/DEE2025_coding/blob/master/DEE2025%20workshop%20slides%20Becker%20Zhu.pptx) (click on the download symbol).
+
+## Further resources
+
+We maintain a site with coding support (both in R and Python) for Econometrics students on the [ECLR](https://datasquad.github.io/ECLR/) webpage. Some of these resources implement some of the ideas discussed here.
+
 ## Coding in R 
 
 * [R_workbook_template.Rmd](https://github.com/datasquad/DEE2025_coding/blob/master/R_workbook_template.Rmd) and [R_workbook_template.html](https://datasquad.github.io/DEE2025_coding/R_workbook_template.html). A template workbook that contains short examples of how to use the rmarkdown environment to present coding challenges to learners.
